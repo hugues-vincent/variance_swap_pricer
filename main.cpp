@@ -20,33 +20,10 @@
 #include "utils/utils.h"
 #include "headers/StochasticModel.h"
 #include "headers/Payoff.h"
+#include "headers/MonteCarlo.h"
 
 
 typedef double (*Payoff)(StochasticModel model_draw);
-
-class MonteCarlo{
-public:
-	MonteCarlo(int n, StochasticModel model_draw, Payoff payoff):
-	 model_draw(model_draw), nb_trials(n), payoff(payoff){}
-	int nb_trials;
-	StochasticModel model_draw;
-	Payoff payoff;
-
-	double expectation()
-	{
-		double cumsum_draw = 0;
-		for (int i = 0; i < nb_trials; i++)
-		{
-			model_draw.new_trial();
-			cumsum_draw += payoff(model_draw);
-		}
-		return cumsum_draw/nb_trials;
-	}
-
-private:
-	std::vector<double> draws;
-
-};
 
 
 int main(int argc, char **argv)
@@ -60,17 +37,13 @@ int main(int argc, char **argv)
 		xy_pts_B.push_back(std::make_pair(cos(theta), sin(theta)));
 	}
     
-    double T(1.0);
-    int N(10000);
-    double S_0(100.0);
-    double v_0(0.5);
-    
-    double rate(0.5) ,kappa(0.3) ,theta(.9) ,sigma(0.9) ,rho(0.6), tau(1.0/8.0);
+    int N(10000); // Number of steps
+    double T(1.0); // Maturity
+    double S_0(100.0), v_0(0.5); // inital conditions for the Heston model SDE
+	double rate(0.5), kappa(0.3), theta(.9), sigma(0.9), rho(0.6), tau(1.0/8.0); //heston model parameters
 
     Heston hm = Heston(T,N, rate, kappa, theta, sigma, rho);
-
-
-    // plot_stochastic_model(hm, 7);
+    plot_stochastic_model(hm, 7);
     return 0;
 } 
 #endif
