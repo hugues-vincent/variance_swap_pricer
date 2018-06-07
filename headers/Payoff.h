@@ -1,5 +1,5 @@
-#ifndef MAIN_CPP
-#define MAIN_CPP
+#ifndef PAYOFF_H
+#define PAYOFF_H
 
 #include <iostream>
 #include <cmath>
@@ -14,8 +14,8 @@
 #include <iterator>
 #include <functional>
 
-#include "utils/plot.h"
-#include "utils/utils.h"
+#include "../utils/plot.h"
+#include "../utils/utils.h"
 #include "StochasticModel.h"
 
 
@@ -33,6 +33,4 @@ double varswap(StochasticModel model_draw)
 	}
 	return pow(100,2)*cum_log_return/T;
 }
-
-
 #endif
