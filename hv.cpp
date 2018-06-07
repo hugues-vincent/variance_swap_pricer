@@ -20,9 +20,9 @@
 using curve = std::vector<std::pair<double, double>>;
 
 
-class PricingModel {
+class StochasticModel {
 public:
-	PricingModel(double T, int N):T(T), N(N), dt(T/N), S(N){}
+	StochasticModel(double T, int N):T(T), N(N), dt(T/N), S(N){}
     std::vector<double> S;
     double T, N, dt;
     virtual void new_trial()
@@ -31,12 +31,12 @@ public:
     }
 };
 
-typedef double (*Payoff)(PricingModel model_draw);
+typedef double (*Payoff)(StochasticModel model_draw);
 
-class Heston: public PricingModel {
+class Heston: public StochasticModel {
 public:
     Heston(double T, int N, double r, double k, double t, double s, double rho):
-    PricingModel(T,N), rate(r), kappa(k), theta(t), sigma(s), rho(rho), W_s(N), W_v(N), V(N){
+    StochasticModel(T,N), rate(r), kappa(k), theta(t), sigma(s), rho(rho), W_s(N), W_v(N), V(N){
     	new_trial();
     }
     std::vector<double> W_s, W_v, V;
@@ -82,39 +82,43 @@ private:
 
 class MonteCarlo{
 public:
-	MonteCarlo(int n, double T, int N, PricingModel model_draw, Payoff payoff):
-	 model_draw(T, N),nb_trials(n){}
-	
+	MonteCarlo(int n, StochasticModel model_draw, Payoff payoff):
+	 model_draw(model_draw), nb_trials(n), payoff(payoff){}
+	int nb_trials;
+	StochasticModel model_draw;
+	Payoff payoff;
+
 	double expectation()
 	{
 		double cumsum_draw = 0;
 		for (int i = 0; i < nb_trials; i++)
 		{
 			model_draw.new_trial();
-
+			cumsum_draw += payoff(model_draw);
 		}
-		return 0;
+		return cumsum_draw/nb_trials;
 	}
-	int nb_trials;
-	PricingModel model_draw;
 
 private:
 	std::vector<double> draws;
-	double varswap(PricingModel model_draw)
-	{
-		double cum_log_return = 0;
 
-		std::vector<double> S = model_draw.S;
-		double N = model_draw.N;
-		double T = model_draw.T;
-
-		for(int i(1); i<N; i++)
-		{
-			cum_log_return += log(pow(S[i]/S[i-1],2));
-		}
-		return pow(100,2)*cum_log_return/T;
-	}
 };
+
+double varswap(StochasticModel model_draw)
+{
+	double cum_log_return = 0;
+
+	std::vector<double> S = model_draw.S;
+	double N = model_draw.N;
+	double T = model_draw.T;
+
+	for(int i(1); i<N; i++)
+	{
+		cum_log_return += log(pow(S[i]/S[i-1],2));
+	}
+	return pow(100,2)*cum_log_return/T;
+}
+
 
 int main(int argc, char **argv)
 {
@@ -132,26 +136,14 @@ int main(int argc, char **argv)
     double S_0(100.0);
     double v_0(0.5);
     
-    double rate(0.5);
-    double kappa(0.3);
-    double theta(.9);
-    double sigma(0.9);
-    double rho(0.6);
-    
-    double tau(1.0/8.0); // ti - ti-1
+    double rate(0.5) ,kappa(0.3) ,theta(.9) ,sigma(0.9) ,rho(0.6), tau(1.0/8.0);
+
     Heston hm = Heston(T,N, rate, kappa, theta, sigma, rho);
+
     std::vector<double> xs = std::vector<double>(N);
     for(int i(1); i<N; i++)
     	xs[i] = xs[i-1] + T/N;
-    p("ws");
-    // p(hm.W_s);
-    // p("wv");
-    // p(hm.W_v);
-    // p("V");
-    // p(hm.V);
-    // p("S");
-    // p(hm.S);
-    
+
 	curve ws, wv, s, v;
 	int max_= 1 , min_=1;
 	for(double i=0; i<N; i++) {
