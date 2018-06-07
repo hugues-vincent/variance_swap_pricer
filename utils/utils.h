@@ -36,12 +36,22 @@ void p(string var_name)
 {
 	cout << var_name << "\n";
 }
+void p(string txt, double var_name)
+{
+	cout << txt << ": " << var_name << "\n";
+}
+
 void p(double var_name)
 {
-	cout << std::to_string(var_name) << "\n";
+	cout << var_name << "\n";
 }
+void p(string txt, int var_name)
+{
+	cout << txt << ": " << var_name << "\n";
+}
+
 void p(int var_name)
 {
-	cout << std::to_string(var_name) << "\n";
+	cout << var_name << "\n";
 }
 #endif
