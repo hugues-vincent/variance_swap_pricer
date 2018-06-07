@@ -1,7 +1,11 @@
+#ifndef PLOT_H
+#define PLOT_H
 #include "../plugins/gnuplot-iostream.h"
 #include <string>
+#include "../StochasticModel.h"
 
 using namespace std;
+using curve = std::vector<std::pair<double, double>>;
 
 void plot(vector<pair<double, double>> xy_pts, const double x_l, const double x_r, const double y_l, const double y_r, const string name="")  
 {
@@ -29,7 +33,7 @@ void plot(vector<pair<double, double>> xy_pts, const double x_l, const double x_
 		cin.get();
 	#endif 
 };
-void plot(vector<vector<pair<double, double>>> xy_ptss, const double x_l, const double x_r, const double y_l, const double y_r, vector<string> names = vector<string>()) 
+void plot(std::vector<curve> xy_ptss, const double x_l, const double x_r, const double y_l, const double y_r, vector<string> names = vector<string>()) 
 {
     	Gnuplot gp;
     	int N = xy_ptss.size();
@@ -42,11 +46,32 @@ void plot(vector<vector<pair<double, double>>> xy_ptss, const double x_l, const 
 		}
 		gp << endl;			
 
-
-	// #ifdef _WIN32
-	// 	// For Windows, prompt for a keystroke before the Gnuplot object goes out of scope so that
-	// 	// the gnuplot window doesn't get closed.
-	// 	cout << "Press enter to exit." << endl;
-	// 	cin.get();
-	// #endif 
 };
+
+void plot_stochastic_model(StochasticModel &stochasticmodel, int nb_trials){
+
+	int N = stochasticmodel.N;
+	double max_= 0 , min_= 0, T = stochasticmodel.T;
+	std::vector<curve> model_curves;
+    std::vector<double> xs = std::vector<double>(N);
+	curve model_curve;
+    
+    for(int i(1); i<N; i++)
+    	xs[i] = xs[i-1] + T/N;
+	
+	for(int i(0); i<nb_trials; i++)
+	{
+		stochasticmodel.new_trial();
+		model_curve = curve();
+		for(double i=0; i<N; i++) {
+			model_curve.push_back(std::make_pair(xs[i], stochasticmodel.S[i]));
+			max_ = max(stochasticmodel.S[i],max_);
+			min_ = min(stochasticmodel.S[i],min_);
+		}
+		model_curves.push_back(model_curve);
+	}
+	max_ += 0.1;
+	min_ -= 0.1;
+    plot(model_curves, 0, T, min_, max_);
+}
+#endif

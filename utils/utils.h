@@ -1,3 +1,6 @@
+#ifndef UTILS_H
+#define UTILS_H
+
 #include <iostream>
 #include <cmath>
 #include <cstdlib> //rand
@@ -41,3 +44,4 @@ void p(int var_name)
 {
 	cout << std::to_string(var_name) << "\n";
 }
+#endif
