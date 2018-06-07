@@ -14,8 +14,8 @@
 #include <iterator>
 #include <functional>
 
-#include "utils/plot.h"
-#include "utils/utils.h"
+#include "../utils/plot.h"
+#include "../utils/utils.h"
 
 class StochasticModel {
 public:
