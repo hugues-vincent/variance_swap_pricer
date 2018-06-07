@@ -31,18 +31,18 @@ public:
     }
 };
 
-typedef void (* payoff)(PricingModel model_draw);
+typedef double (*Payoff)(PricingModel model_draw);
 
-class Heston {
+class Heston: public PricingModel {
 public:
     Heston(double T, int N, double r, double k, double t, double s, double rho):
-    T(T), N(N), rate(r), kappa(k), theta(t), sigma(s), rho(rho), W_s(N), W_v(N), S(N), V(N){
+    PricingModel(T,N), rate(r), kappa(k), theta(t), sigma(s), rho(rho), W_s(N), W_v(N), V(N){
     	new_trial();
     }
-    std::vector<double> W_s, W_v, S, V;
-    double T, N, rate, kappa, theta, sigma, rho, dt = T/N;
+    std::vector<double> W_s, W_v, V;
+    double rate, kappa, theta, sigma, rho;
 
- 	void new_trial() 
+ 	void new_trial() override	
     {
     	correlated_draws(W_v, W_s);
     	calc_vol_path(W_v, V);
@@ -82,7 +82,7 @@ private:
 
 class MonteCarlo{
 public:
-	MonteCarlo(int n, double T, int N, PricingModel model_draw):
+	MonteCarlo(int n, double T, int N, PricingModel model_draw, Payoff payoff):
 	 model_draw(T, N),nb_trials(n){}
 	
 	double expectation()
