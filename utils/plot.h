@@ -3,7 +3,7 @@
 
 using namespace std;
 
-void plot(vector<pair<double, double>> xy_pts, const int x_l, const int x_r, const int y_l, const int y_r, const string name="")  
+void plot(vector<pair<double, double>> xy_pts, const double x_l, const double x_r, const double y_l, const double y_r, const string name="")  
 {
     	Gnuplot gp;
 
@@ -29,7 +29,7 @@ void plot(vector<pair<double, double>> xy_pts, const int x_l, const int x_r, con
 		cin.get();
 	#endif 
 };
-void plot(vector<vector<pair<double, double>>> xy_ptss, const int x_l, const int x_r, const int y_l, const int y_r, vector<string> names = vector<string>()) 
+void plot(vector<vector<pair<double, double>>> xy_ptss, const double x_l, const double x_r, const double y_l, const double y_r, vector<string> names = vector<string>()) 
 {
     	Gnuplot gp;
     	int N = xy_ptss.size();
@@ -43,10 +43,10 @@ void plot(vector<vector<pair<double, double>>> xy_ptss, const int x_l, const int
 		gp << endl;			
 
 
-	#ifdef _WIN32
-		// For Windows, prompt for a keystroke before the Gnuplot object goes out of scope so that
-		// the gnuplot window doesn't get closed.
-		cout << "Press enter to exit." << endl;
-		cin.get();
-	#endif 
+	// #ifdef _WIN32
+	// 	// For Windows, prompt for a keystroke before the Gnuplot object goes out of scope so that
+	// 	// the gnuplot window doesn't get closed.
+	// 	cout << "Press enter to exit." << endl;
+	// 	cin.get();
+	// #endif 
 };
