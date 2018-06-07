@@ -36,15 +36,13 @@ typedef void (* payoff)(PricingModel model_draw);
 class Heston {
 public:
     Heston(double T, int N, double r, double k, double t, double s, double rho):
-     T(T), N(N), rate(r), kappa(k), theta(t), sigma(s), rho(rho), W_s(N), W_v(N), V(N), S(N){
-    	correlated_draws(W_v, W_s);
-    	calc_vol_path(W_v, V);
-    	calc_spot_path(W_s, V, S);
-     	// new_trial();
+    T(T), N(N), rate(r), kappa(k), theta(t), sigma(s), rho(rho), W_s(N), W_v(N), S(N), V(N){
+    	new_trial();
     }
     std::vector<double> W_s, W_v, S, V;
-    double T, N, rate, kappa, theta, sigma, rho, dt;
-     void new_trial() 
+    double T, N, rate, kappa, theta, sigma, rho, dt = T/N;
+
+ 	void new_trial() 
     {
     	correlated_draws(W_v, W_s);
     	calc_vol_path(W_v, V);
@@ -154,7 +152,7 @@ int main(int argc, char **argv)
     // p("S");
     // p(hm.S);
     
-	std::vector<std::pair<double, double>> ws, wv, s, v, concat;
+	curve ws, wv, s, v;
 	int max_= 1 , min_=1;
 	for(double i=0; i<N; i++) {
 		wv.push_back(std::make_pair(xs[i], hm.W_v[i]));
@@ -171,13 +169,9 @@ int main(int argc, char **argv)
 		min_ = min(hm.S[i],min_);
 
 	}
-	min_ -= .4;
-	max_ += .4;
- 	cout << max_ << endl;
- 	cout << min_ << endl;
-    plot({wv, ws, s, v}, 0, T, -1, 1, {"wv", "ws", "s", "v"});
-    // plot(v, 0, T, min_, max_, "v");
-
+	curve ws2, wv2, s2, v2;
+	hm.new_trial();
+    plot({wv, ws, s, v}, 0, T, min_, max_, {"wv", "ws", "s", "v"});
 
     return 0;
 } 
