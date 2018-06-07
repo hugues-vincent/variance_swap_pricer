@@ -48,6 +48,29 @@ void plot(std::vector<curve> xy_ptss, const double x_l, const double x_r, const 
 
 };
 
+void plot_stochastic_model(StochasticModel &stochasticmodel){
+
+	int N = stochasticmodel.N;
+	double T = stochasticmodel.T;
+	double max_= 0 , min_= 0;
+	curve model_curve;
+    std::vector<double> xs = std::vector<double>(N);
+
+    
+    for(int i(1); i<N; i++)
+    {
+    	xs[i] = xs[i-1] + T/N;
+    }
+	for(double i=0; i<N; i++) 
+	{
+		model_curve.push_back(std::make_pair(xs[i], stochasticmodel.S[i]));
+		max_ = max(stochasticmodel.S[i],max_);
+		min_ = min(stochasticmodel.S[i],min_);
+	}
+	max_ += 0.1;
+	min_ -= 0.1;
+    plot(model_curve, 0, T, min_, max_);
+}
 void plot_stochastic_model(StochasticModel &stochasticmodel, int nb_trials){
 
 	int N = stochasticmodel.N;
