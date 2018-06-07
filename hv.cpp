@@ -14,42 +14,42 @@
 #include <iterator>
 #include <functional>
 
-#include "./utils/plot.h"
+#include "utils/plot.h"
+#include "utils/utils.h"
+
 using curve = std::vector<std::pair<double, double>>;
 
-using namespace std;
-double gaussian_draw(double mu = 0, double sigma = 1)
-{
-    double u = ((double) rand() / (RAND_MAX));
-    double v = ((double) rand() / (RAND_MAX));
-    return mu + sigma * ( sqrt(-2*log(u)) * sin(2*M_PI*v) );
-}
-void p(const std::vector<double> v)
-{
-	for(int i(0); i<v.size(); i++)
-	{
-		cout << v[i] <<" ";
-	}
-	cout << "\n";
-}
-void p(string var_name)
-{
-	cout << var_name << "\n";
-}
 
+class PricingModel {
+public:
+	PricingModel(double T, int N):T(T), N(N), dt(T/N), S(N){}
+    std::vector<double> S;
+    double T, N, dt;
+    virtual void new_trial()
+    {
+    	S = std::vector<double>(N);
+    }
+};
+
+typedef void (* payoff)(PricingModel model_draw);
 
 class Heston {
 public:
     Heston(double T, int N, double r, double k, double t, double s, double rho):
-    T(T), N(N), rate(r), kappa(k), theta(t), sigma(s), rho(rho), W_s(N), W_v(N), S(N), V(N){
+     T(T), N(N), rate(r), kappa(k), theta(t), sigma(s), rho(rho), W_s(N), W_v(N), V(N), S(N){
     	correlated_draws(W_v, W_s);
     	calc_vol_path(W_v, V);
     	calc_spot_path(W_s, V, S);
-
+     	// new_trial();
     }
     std::vector<double> W_s, W_v, S, V;
-    double T, N, rate, kappa, theta, sigma, rho, dt = T/N;
-
+    double T, N, rate, kappa, theta, sigma, rho, dt;
+     void new_trial() 
+    {
+    	correlated_draws(W_v, W_s);
+    	calc_vol_path(W_v, V);
+    	calc_spot_path(W_s, V, S);
+    }
 private:
 	void correlated_draws(vector<double>& uncorr_draws, vector<double>& corr_draws)
 	{
@@ -82,8 +82,41 @@ private:
 
 };
 
+class MonteCarlo{
+public:
+	MonteCarlo(int n, double T, int N, PricingModel model_draw):
+	 model_draw(T, N),nb_trials(n){}
+	
+	double expectation()
+	{
+		double cumsum_draw = 0;
+		for (int i = 0; i < nb_trials; i++)
+		{
+			model_draw.new_trial();
 
+		}
+		return 0;
+	}
+	int nb_trials;
+	PricingModel model_draw;
 
+private:
+	std::vector<double> draws;
+	double varswap(PricingModel model_draw)
+	{
+		double cum_log_return = 0;
+
+		std::vector<double> S = model_draw.S;
+		double N = model_draw.N;
+		double T = model_draw.T;
+
+		for(int i(1); i<N; i++)
+		{
+			cum_log_return += log(pow(S[i]/S[i-1],2));
+		}
+		return pow(100,2)*cum_log_return/T;
+	}
+};
 
 int main(int argc, char **argv)
 {
@@ -97,15 +130,15 @@ int main(int argc, char **argv)
 	}
     
     double T(1.0);
-    int N(1000);
+    int N(10000);
     double S_0(100.0);
-    double v_0(0.04);
+    double v_0(0.5);
     
-    double rate(0.05);
+    double rate(0.5);
     double kappa(0.3);
-    double theta(0.04);
+    double theta(.9);
     double sigma(0.9);
-    double rho(0.5);
+    double rho(0.6);
     
     double tau(1.0/8.0); // ti - ti-1
     Heston hm = Heston(T,N, rate, kappa, theta, sigma, rho);
@@ -121,13 +154,30 @@ int main(int argc, char **argv)
     // p("S");
     // p(hm.S);
     
-	std::vector<std::pair<double, double> > ws, wv;
+	std::vector<std::pair<double, double>> ws, wv, s, v, concat;
+	int max_= 1 , min_=1;
 	for(double i=0; i<N; i++) {
 		wv.push_back(std::make_pair(xs[i], hm.W_v[i]));
 		ws.push_back(std::make_pair(xs[i], hm.W_s[i]));
+		s.push_back(std::make_pair(xs[i], hm.S[i]));
+		v.push_back(std::make_pair(xs[i], hm.V[i]));
+		max_ = max(hm.W_v[i],max_);
+		max_ = max(hm.W_s[i],max_);
+		max_ = max(hm.V[i],max_);
+		max_ = max(hm.S[i],max_);
+		min_ = min(hm.W_v[i],min_);
+		min_ = min(hm.W_s[i],min_);
+		min_ = min(hm.V[i],min_);
+		min_ = min(hm.S[i],min_);
+
 	}
-    plot({wv, ws}, 0, 1, -4, 4, {"wv", "ws"});
+	min_ -= .4;
+	max_ += .4;
+ 	cout << max_ << endl;
+ 	cout << min_ << endl;
+    plot({wv, ws, s, v}, 0, T, -1, 1, {"wv", "ws", "s", "v"});
+    // plot(v, 0, T, min_, max_, "v");
 
 
     return 0;
-}
+} 
