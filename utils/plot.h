@@ -2,7 +2,6 @@
 #define PLOT_H
 #include "../plugins/gnuplot-iostream.h"
 #include <string>
-#include "../headers/StochasticModel.h"
 
 using namespace std;
 using curve = std::vector<std::pair<double, double>>;

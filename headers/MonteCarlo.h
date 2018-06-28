@@ -1,6 +1,5 @@
 #ifndef MONTECARLO_H
 #define MONTECARLO_H
-#include "StochasticModel.h"
 
 // typedef double (*Payoff)(StochasticModel model_draw);
 // class MonteCarlo{

@@ -16,7 +16,6 @@
 
 #include "../utils/plot.h"
 #include "../utils/utils.h"
-#include "StochasticModel.h"
 
 
 // double varswap(StochasticModel model_draw)

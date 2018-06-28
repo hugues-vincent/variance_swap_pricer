@@ -1,5 +1,5 @@
-#ifndef STOCHASTICMODEL_H
-#define STOCHASTICMODEL_H
+#ifndef HESTON_EULER_MARUYAMA_H
+#define HESTON_EULER_MARUYAMA_H
 
 #include <iostream>
 #include <cmath>
