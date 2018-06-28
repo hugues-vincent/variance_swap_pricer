@@ -23,7 +23,7 @@
 #include "headers/MonteCarlo.h"
 
 
-typedef double (*Payoff)(StochasticModel model_draw);
+// typedef double (*Payoff)(StochasticModel model_draw);
 
 
 int main(int argc, char **argv)
@@ -31,14 +31,15 @@ int main(int argc, char **argv)
     // === Initialization ===
     srand((unsigned)time(0));
     
-    int N(10000); // Number of steps
+    int N(1000); // Number of steps
     double T(1.0); // Maturity
     double S_0(100.0), v_0(0.5); // inital conditions for the Heston model SDE
 	double rate(0.5), kappa(0.3), theta(.9), sigma(0.9), rho(0.6), tau(1.0/8.0); //heston model parameters
 
     Heston heston = Heston(T,N, rate, kappa, theta, sigma, rho);
     // MonteCarlo(100, heston, (Payoff)varswap)
-    plot_stochastic_model(heston, 7);
+    // plot_stochastic_model(heston, 7);
+    plot({heston.W_s, heston.W_v}, T);
     return 0;
 } 
 #endif

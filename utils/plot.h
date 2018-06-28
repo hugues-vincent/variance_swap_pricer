@@ -47,54 +47,37 @@ void plot(std::vector<curve> xy_ptss, const double x_l, const double x_r, const 
 		gp << endl;			
 
 };
-
-void plot_stochastic_model(StochasticModel &stochasticmodel){
-
-	int N = stochasticmodel.N;
-	double T = stochasticmodel.T;
+void plot(std::vector<std::vector<double>> ys, const double T, vector<string> names = vector<string>()) 
+{
 	double max_= 0 , min_= 0;
+	Gnuplot gp;
 	curve model_curve;
-    std::vector<double> xs = std::vector<double>(N);
-
-    
-    for(int i(1); i<N; i++)
-    {
-    	xs[i] = xs[i-1] + T/N;
-    }
-	for(double i=0; i<N; i++) 
+	int nb_curve = ys.size();
+	for(int i(0); i<nb_curve; i++)
 	{
-		model_curve.push_back(std::make_pair(xs[i], stochasticmodel.S[i]));
-		max_ = max(stochasticmodel.S[i],max_);
-		min_ = min(stochasticmodel.S[i],min_);
-	}
-	max_ += 0.1;
-	min_ -= 0.1;
-    plot(model_curve, 0, T, min_, max_);
-}
-void plot_stochastic_model(StochasticModel &stochasticmodel, int nb_trials){
-
-	int N = stochasticmodel.N;
-	double max_= 0 , min_= 0, T = stochasticmodel.T;
-	std::vector<curve> model_curves;
-    std::vector<double> xs = std::vector<double>(N);
-	curve model_curve;
-    
-    for(int i(1); i<N; i++)
-    	xs[i] = xs[i-1] + T/N;
-	
-	for(int i(0); i<nb_trials; i++)
-	{
-		stochasticmodel.new_trial();
-		model_curve = curve();
-		for(double i=0; i<N; i++) {
-			model_curve.push_back(std::make_pair(xs[i], stochasticmodel.S[i]));
-			max_ = max(stochasticmodel.S[i],max_);
-			min_ = min(stochasticmodel.S[i],min_);
+		for(double j=0; j<ys[i].size(); j++) {
+			max_ = max(ys[i][j],max_);
+			min_ = min(ys[i][j],min_);
 		}
-		model_curves.push_back(model_curve);
 	}
 	max_ += 0.1;
 	min_ -= 0.1;
-    plot(model_curves, 0, T, min_, max_);
-}
+
+	if(names.empty())
+		names =  vector<string>(nb_curve, "");
+	gp << "set xrange ["<<0<<":"<< T<<"]\n set yrange ["<<min_<<":"<< max_<<"]\n" << "plot";
+	for(int i(0); i<nb_curve; i++)
+	{
+		model_curve = curve();
+		int N = ys[i].size();
+		double x = 0;
+		for(double j=0; j<N; j++) {
+			model_curve.push_back(std::make_pair(x, ys[i][j]));
+			x += T/N;
+		}
+		gp << gp.file1d(model_curve) <<  "with lines title '"<< names[i]<<"',";	
+	}
+	gp << endl;			
+
+};
 #endif

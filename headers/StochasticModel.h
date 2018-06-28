@@ -17,27 +17,16 @@
 #include "../utils/plot.h"
 #include "../utils/utils.h"
 
-class StochasticModel {
-public:
-	StochasticModel(double T, int N):T(T), N(N), dt(T/N), S(N){}
-    std::vector<double> S;
-    double T, N, dt;
-    virtual void new_trial()
-    {
-    	S = std::vector<double>(N);
-    }
-};
-
-class Heston: public StochasticModel {
+class Heston {
 public:
     Heston(double T, int N, double r, double k, double t, double s, double rho):
-    StochasticModel(T,N), rate(r), kappa(k), theta(t), sigma(s), rho(rho), W_s(N), W_v(N), V(N){
+    T(T), N(N), dt(T/N), S(N), rate(r), kappa(k), theta(t), sigma(s), rho(rho), W_s(N), W_v(N), V(N){
     	new_trial();
     }
-    std::vector<double> W_s, W_v, V;
-    double rate, kappa, theta, sigma, rho;
+    std::vector<double> W_s, W_v, V, S;
+    double rate, kappa, theta, sigma, rho, T, N, dt;
 
- 	void new_trial() override
+ 	void new_trial()
     {
     	correlated_draws(W_v, W_s);
     	calc_vol_path(W_v, V);
