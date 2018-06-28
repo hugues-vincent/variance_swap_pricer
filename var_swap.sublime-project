@@ -4,7 +4,7 @@
 		{
 			"file_regex": ".+",
 			"name": "cppbuilder",
-			"shell_cmd": "g++ -std=c++11 ${project_path}/main.cpp -lboost_iostreams -lboost_system -lboost_filesystem && ./a.out"
+			"shell_cmd": "g++ -std=c++11 ${project_path}/main.cpp -o ${project_path}/a.out -lboost_iostreams -lboost_system -lboost_filesystem && ${project_path}/a.out"
 		}
 	],
 	"folders":
