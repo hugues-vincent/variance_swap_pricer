@@ -31,15 +31,25 @@ int main(int argc, char **argv)
     // === Initialization ===
     srand((unsigned)time(0));
     
-    int N(1000); // Number of steps
-    double T(1.0); // Maturity
-    double S_0(100.0), v_0(0.5); // inital conditions for the Heston model SDE
-	double rate(0.5), kappa(0.3), theta(.9), sigma(0.9), rho(0.6), tau(1.0/8.0); //heston model parameters
+    int N; // number of steps
+    double T; // Maturity
+    double S_0, V_0; // inital conditions for the Heston model SDE
+	double rate, kappa, theta, sigma, rho; //heston model 
+    N = 1000;
+    T = 1;
+    S_0 = 10;
+    V_0 = 1;
+    rate = 0.05;
+    kappa = 1;
+    theta = 0.1;
+    sigma = 0.3;
+    rho = - 0.6;
 
-    Heston heston = Heston(T,N, rate, kappa, theta, sigma, rho);
-    // MonteCarlo(100, heston, (Payoff)varswap)
-    // plot_stochastic_model(heston, 7);
-    plot({heston.W_s, heston.W_v}, T);
+
+    HestonEulerMaruyama heston = HestonEulerMaruyama(T,N, rate, kappa, theta, sigma, rho, S_0, V_0);
+    std::vector<std::vector<double>> trials;
+    plot(heston.generate_paths("S", 20), T);
+    plot(heston.generate_paths("LnS", 20), T);
     return 0;
 } 
 #endif
