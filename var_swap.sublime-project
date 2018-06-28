@@ -1,4 +1,12 @@
 {
+	"build_systems":
+	[
+		{
+			"file_regex": ".+",
+			"name": "cppbuilder",
+			"shell_cmd": "g++ -std=c++11 ${project_path}/main.cpp -lboost_iostreams -lboost_system -lboost_filesystem && ./a.out"
+		}
+	],
 	"folders":
 	[
 		{
