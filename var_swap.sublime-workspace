@@ -1,0 +1,2186 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"su",
+				"\\sum_{}^{}"
+			],
+			[
+				"rgi",
+				"\\right"
+			],
+			[
+				"righ",
+				"\\right"
+			],
+			[
+				"rig",
+				"\\right"
+			],
+			[
+				"ti",
+				"\\tilde"
+			],
+			[
+				"sta",
+				"\\star"
+			],
+			[
+				"arow",
+				"\\rightarrow"
+			],
+			[
+				"lef",
+				"\\Leftrightarrow"
+			],
+			[
+				"s",
+				"\\subsubsection*{}"
+			],
+			[
+				"secti",
+				"\\section{}"
+			],
+			[
+				"par",
+				"\\part*{}"
+			],
+			[
+				"la",
+				"\\Lambda"
+			],
+			[
+				"aut",
+				"\\autoref"
+			],
+			[
+				"no",
+				"\\nonumber"
+			],
+			[
+				"gma",
+				"\\Gamma"
+			],
+			[
+				"fra",
+				"\\frac{}{}"
+			],
+			[
+				"math",
+				"\\mathit"
+			],
+			[
+				"dd",
+				"\\ddots"
+			],
+			[
+				"cdo",
+				"\\cdots"
+			],
+			[
+				"para",
+				"\\parallel"
+			],
+			[
+				"re",
+				"\\ref"
+			],
+			[
+				"D",
+				"\\Delta"
+			],
+			[
+				"tex",
+				"\\text{}"
+			],
+			[
+				"lan",
+				"\\langle"
+			],
+			[
+				"ro",
+				"\\rho"
+			],
+			[
+				"dot",
+				"\\odot"
+			],
+			[
+				"in",
+				"\\infty"
+			],
+			[
+				"mta",
+				"\\mathbb"
+			],
+			[
+				"sq",
+				"\\sqrt"
+			],
+			[
+				"sig",
+				"\\sigma"
+			],
+			[
+				"en",
+				"\\end"
+			],
+			[
+				"alp",
+				"\\alpha"
+			],
+			[
+				"m",
+				"\\maketitle"
+			],
+			[
+				"b",
+				"bindsym"
+			],
+			[
+				"ch",
+				"charge_percent"
+			],
+			[
+				"arr",
+				"arrIN"
+			],
+			[
+				"ed",
+				"eDP1"
+			],
+			[
+				"Dis",
+				"display"
+			],
+			[
+				"out",
+				"output"
+			],
+			[
+				"wor",
+				"workspace"
+			],
+			[
+				"pr",
+				"project_name"
+			],
+			[
+				"Ar",
+				"ArcheologCreator"
+			],
+			[
+				"a",
+				"archeologcommon"
+			],
+			[
+				"pu",
+				"public"
+			],
+			[
+				"mon",
+				"monEquipage"
+			],
+			[
+				"P",
+				"Pilote"
+			],
+			[
+				"point",
+				"point1D"
+			],
+			[
+				"p",
+				"TEMPLATE_CONTEXT_PROCESSORS"
+			],
+			[
+				"il",
+				"INSTALLED_APPS"
+			],
+			[
+				"Foo",
+				"FoodForm"
+			],
+			[
+				"se",
+				"settings_set\tsettings.set"
+			],
+			[
+				"nut",
+				"nutrition"
+			],
+			[
+				"pad",
+				"padding-left"
+			],
+			[
+				"mar",
+				"margin-left"
+			],
+			[
+				"padd",
+				"padding"
+			],
+			[
+				"font",
+				"font-weight"
+			],
+			[
+				"cl",
+				"client"
+			],
+			[
+				"ev",
+				"event_id"
+			],
+			[
+				"paddi",
+				"padding"
+			],
+			[
+				"mem",
+				"MembreEquipage"
+			],
+			[
+				"ap",
+				"approximateFunction"
+			],
+			[
+				"te",
+				"text-decoration"
+			],
+			[
+				"pa",
+				"padding-left"
+			],
+			[
+				"margin",
+				"margin"
+			],
+			[
+				"for",
+				"foreach\tforeach …"
+			],
+			[
+				"print",
+				"print_r"
+			],
+			[
+				"fi",
+				"files1"
+			],
+			[
+				"fon",
+				"font-weight"
+			],
+			[
+				"text",
+				"text-decoration"
+			],
+			[
+				"d",
+				"d-ib\tdisplay: inline-block;"
+			],
+			[
+				"bor",
+				"border-left"
+			],
+			[
+				"he",
+				"height"
+			],
+			[
+				"compan",
+				"company_creator"
+			],
+			[
+				"marg",
+				"margin-right"
+			],
+			[
+				"user",
+				"username"
+			],
+			[
+				"da",
+				"date_time"
+			],
+			[
+				"borde",
+				"border-width"
+			],
+			[
+				"border-top-ti",
+				"border-top-right-radius"
+			],
+			[
+				"r",
+				"rgba(r,g,b,a)"
+			],
+			[
+				"magin",
+				"margin-top"
+			],
+			[
+				"com",
+				"company"
+			],
+			[
+				"ac",
+				"acount_user"
+			],
+			[
+				"us",
+				"USER"
+			],
+			[
+				"acc",
+				"account_user"
+			],
+			[
+				"bo",
+				"border-right"
+			],
+			[
+				"cha",
+				"ChangePasswordForm"
+			],
+			[
+				"rg",
+				"rgba()"
+			],
+			[
+				"di",
+				"d-ib+\tdisplay: inline-block;\n*display: inline;\n*zoom: 1;"
+			],
+			[
+				"dis",
+				"display"
+			],
+			[
+				"mag",
+				"margin"
+			],
+			[
+				"bot",
+				"border-top"
+			],
+			[
+				"border",
+				"border-top"
+			],
+			[
+				"ma",
+				"margin"
+			],
+			[
+				"st",
+				"style\tAttr"
+			],
+			[
+				"style",
+				"style\tAttr"
+			],
+			[
+				"back",
+				"background-color"
+			],
+			[
+				"plate",
+				"plateNumber"
+			],
+			[
+				"per",
+				"permissions_admin"
+			],
+			[
+				"fu",
+				"full_url"
+			],
+			[
+				"fo",
+				"font-size"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"pos",
+				"position"
+			],
+			[
+				"mari",
+				"margin"
+			],
+			[
+				"first",
+				"first-child\t pseudo selector"
+			],
+			[
+				"day",
+				"day_of_the_week"
+			],
+			[
+				"wee",
+				"week_number"
+			],
+			[
+				"S",
+				"Service"
+			],
+			[
+				"model",
+				"models"
+			],
+			[
+				"daj",
+				"django_user"
+			],
+			[
+				"Cyc",
+				"CycleDay"
+			],
+			[
+				"mode",
+				"models"
+			],
+			[
+				"For",
+				"ForeignKey"
+			],
+			[
+				"node",
+				"Node"
+			],
+			[
+				"tag",
+				"tagName"
+			],
+			[
+				"tit",
+				"titre1"
+			],
+			[
+				"ou",
+				"out"
+			],
+			[
+				"w",
+				"weblinkstr"
+			],
+			[
+				"yea",
+				"yearstr"
+			],
+			[
+				"margin-t",
+				"margin-left"
+			],
+			[
+				"col",
+				"color"
+			],
+			[
+				"co",
+				"color"
+			],
+			[
+				"i",
+				"important"
+			],
+			[
+				"fl",
+				"float"
+			],
+			[
+				"clo",
+				"color"
+			],
+			[
+				"c",
+				"color"
+			],
+			[
+				"padi",
+				"padding-top"
+			],
+			[
+				"res",
+				"restriction"
+			],
+			[
+				"mo",
+				"modelfields"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "headers/Payoff.h",
+			"settings":
+			{
+				"buffer_size": 662,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					""
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"Traditional"
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"PdfLaTeX"
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"XeLaTeX"
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"LuaLaTeX"
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"Basic Builder"
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"Basic Builder - PdfLaTeX"
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"Basic Builder - XeLaTeX"
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"Basic Builder - LuaLaTeX"
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"Script Builder"
+				],
+				[
+					"Packages/User/gpp.sublime-build",
+					""
+				]
+			],
+			[
+				"Packages/LaTeXTools/LaTeX.sublime-build",
+				"Basic Builder"
+			]
+		]
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 374.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"proj",
+				"Project: Save As"
+			],
+			[
+				"c",
+				"Set Syntax: C++"
+			],
+			[
+				"mal",
+				"Set Syntax: MATLAB"
+			],
+			[
+				"matl",
+				"Set Syntax: MATLAB"
+			],
+			[
+				"sta",
+				"git: status"
+			],
+			[
+				"dele",
+				"File: Delete"
+			],
+			[
+				"grap",
+				"git: graph"
+			],
+			[
+				"path",
+				"File: Copy Path From Project"
+			],
+			[
+				"move",
+				"File: Move"
+			],
+			[
+				"bran",
+				"git: branch"
+			],
+			[
+				"copy",
+				"File: Copy Name"
+			],
+			[
+				"anfc",
+				"ANF: Copy Current File"
+			],
+			[
+				"git sta",
+				"git: status"
+			],
+			[
+				"buil",
+				"Build With: LaTeX - PdfLaTeX"
+			],
+			[
+				"anf",
+				"ANF: New File"
+			],
+			[
+				"anac",
+				"Anaconda: Disable linting on this file"
+			],
+			[
+				"gra",
+				"git: graph"
+			],
+			[
+				"packa",
+				"Package Control: Remove Package"
+			],
+			[
+				"build b",
+				"Build With: LaTeX - Basic Builder"
+			],
+			[
+				"re",
+				"File: Rename"
+			],
+			[
+				"bibl",
+				"Set Syntax: BibLaTeX"
+			],
+			[
+				"ren",
+				"File: Rename"
+			],
+			[
+				"build",
+				"Build With: LaTeX - PdfLaTeX"
+			],
+			[
+				"git ini",
+				"git: init"
+			],
+			[
+				"latex build",
+				"Build With: LaTeX - Basic Builder - PdfLaTeX"
+			],
+			[
+				"i3",
+				"Set Syntax: i3-wm Config"
+			],
+			[
+				"stat",
+				"git: status"
+			],
+			[
+				"inde",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"ne",
+				"ANF: New File"
+			],
+			[
+				"add fol",
+				"Project: Add Folder"
+			],
+			[
+				"sa",
+				"Project: Save As"
+			],
+			[
+				"table",
+				"Table Editor: Enable for current view"
+			],
+			[
+				"bui",
+				"Build With: LaTeX"
+			],
+			[
+				"git stat",
+				"git: status"
+			],
+			[
+				"git",
+				"git: branch"
+			],
+			[
+				"late",
+				"LaTeXTools: View PDF"
+			],
+			[
+				"an",
+				"ANF: New File"
+			],
+			[
+				"pro",
+				"Project: Save As"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"la",
+				"LaTeXTools: View PDF"
+			],
+			[
+				"js",
+				"Set Syntax: JavaScript (Babel)"
+			],
+			[
+				"r",
+				"File: Rename"
+			],
+			[
+				"name",
+				"File: Copy Name"
+			],
+			[
+				"selection",
+				"Compare selections"
+			],
+			[
+				"cop",
+				"File: Copy Name"
+			],
+			[
+				"ini",
+				"Set Syntax: INI"
+			],
+			[
+				"disable ",
+				"Package Control: Disable Package"
+			],
+			[
+				"css",
+				"Set Syntax: CSS"
+			],
+			[
+				"package",
+				"Package Control: Enable Package"
+			],
+			[
+				"key",
+				"Preferences: Key Bindings"
+			],
+			[
+				"tble m",
+				"Table Editor: Set table syntax 'MultiMarkdown' for current view"
+			],
+			[
+				"add",
+				"Project: Add Folder"
+			],
+			[
+				"mar",
+				"Markdown Preview: Preview in Browser"
+			],
+			[
+				"",
+				"ANF: New File"
+			],
+			[
+				"set bash",
+				"Set Syntax: Shell Script (Bash)"
+			],
+			[
+				"set ma",
+				"Set Syntax: Markdown"
+			],
+			[
+				"md",
+				"Markdown Preview: Preview in Browser"
+			],
+			[
+				"set pla",
+				"Set Syntax: Plain Text"
+			],
+			[
+				"exe",
+				"SublimeREPL: Python - execnet"
+			],
+			[
+				"repl ",
+				"SublimeREPL: Python - Sublime Text Console"
+			],
+			[
+				"repl py",
+				"SublimeREPL: Python - IPython"
+			],
+			[
+				"repl sca",
+				"SublimeREPL: Scala"
+			],
+			[
+				"repl",
+				"SublimeREPL: Lua"
+			],
+			[
+				"repl shel",
+				"SublimeREPL: Shell"
+			],
+			[
+				"repl pyth",
+				"SublimeREPL: Python - virtualenv"
+			],
+			[
+				"repl pyt",
+				"SublimeREPL: Python"
+			],
+			[
+				"package contro insa",
+				"Package Control: Install Package"
+			],
+			[
+				"package ",
+				"Package Control: Enable Package"
+			],
+			[
+				"set sh",
+				"Set Syntax: Shell Script (Bash)"
+			],
+			[
+				"new ",
+				"ANF: New File"
+			],
+			[
+				"new",
+				"ANF: New File"
+			],
+			[
+				"subli",
+				"SublimeLinter: Clear Caches"
+			],
+			[
+				"sublim",
+				"SublimeLinter: Toggle Linter"
+			],
+			[
+				"package ins",
+				"Package Control: Install Package"
+			],
+			[
+				"list ",
+				"Package Control: List Packages"
+			],
+			[
+				"pac",
+				"Package Control: Remove Package"
+			],
+			[
+				"jso",
+				"Set Syntax: JSON"
+			],
+			[
+				"new f",
+				"File: New File Relative to Current View"
+			],
+			[
+				"pep",
+				"Anaconda: Autoformat PEP8 Errors"
+			],
+			[
+				"rena",
+				"File: Rename"
+			],
+			[
+				"set pl",
+				"Set Syntax: Plain Text"
+			],
+			[
+				"html",
+				"HTMLPrettify"
+			],
+			[
+				"set htm",
+				"Set Syntax: HTML"
+			],
+			[
+				"delete",
+				"File: Delete"
+			],
+			[
+				"anan des",
+				"Anaconda: Disable linting on this file"
+			],
+			[
+				"pep 8",
+				"Anaconda: Autoformat PEP8 Errors"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"ma",
+				"Markdown Preview: Preview in Browser"
+			],
+			[
+				"m",
+				"Markdown Preview: Preview in Browser"
+			],
+			[
+				"Ma",
+				"Markdown Preview: Preview in Browser"
+			],
+			[
+				"file",
+				"File: New File Relative to Project Root"
+			],
+			[
+				"clo",
+				"Project: Close"
+			],
+			[
+				"save as",
+				"Project: Save As"
+			],
+			[
+				"new file",
+				"File: New File Relative to Project Root"
+			],
+			[
+				"anacod",
+				"Anaconda: Disable linting on this file"
+			],
+			[
+				"package disa",
+				"Package Control: Disable Package"
+			],
+			[
+				"package e",
+				"Package Control: Enable Package"
+			],
+			[
+				"fol",
+				"File: New Folder Relative to Project Root"
+			],
+			[
+				"de",
+				"ANF: Delete File"
+			],
+			[
+				"anaconda d",
+				"Anaconda: Disable linting on this file"
+			],
+			[
+				"anaconda dis",
+				"Anaconda: Disable linting on this file"
+			],
+			[
+				"virt",
+				"Virtualenv: Activate"
+			],
+			[
+				"ana",
+				"Anaconda: Autoformat PEP8 Errors"
+			],
+			[
+				"mark",
+				"Markdown Preview: Preview in Browser"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"rename",
+				"File: Rename"
+			],
+			[
+				"project",
+				"Project: Edit Project"
+			],
+			[
+				"plai",
+				"Set Syntax: Plain Text"
+			],
+			[
+				"odd",
+				"Oddly: Split into 'oddly' lines"
+			],
+			[
+				"package is",
+				"Package Control: List Packages"
+			],
+			[
+				"odde",
+				"Oddly: Split into 'oddly' lines"
+			],
+			[
+				"pack ins",
+				"Package Control: Install Package"
+			],
+			[
+				"projec",
+				"Project: Edit Project"
+			],
+			[
+				"proje",
+				"Project: Save As"
+			],
+			[
+				"plain",
+				"Set Syntax: Plain Text"
+			],
+			[
+				"java",
+				"Set Syntax: Java"
+			],
+			[
+				"gnu",
+				"Set Syntax: gnuplot"
+			],
+			[
+				"vir",
+				"Virtualenv: Deactivate"
+			],
+			[
+				"v",
+				"Virtualenv: Activate"
+			],
+			[
+				"theme",
+				"SublimeLinter: Choose Gutter Theme"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"py",
+				"Build With: Python"
+			],
+			[
+				"gnupl",
+				"Build With: gnuplot"
+			],
+			[
+				"git lo",
+				"git: log"
+			],
+			[
+				"git dif",
+				"git: diff"
+			],
+			[
+				"pres",
+				"Preferences: Settings - User"
+			],
+			[
+				"git bra",
+				"git: branch"
+			]
+		],
+		"width": 546.0
+	},
+	"console":
+	{
+		"height": 448.0,
+		"history":
+		[
+			"a **2",
+			"a = 32",
+			"python -v",
+			"4 + 4",
+			"ls",
+			"import urllib.request,os,hashlib; h = 'eb2297e1a458f27d836c04bb0cbaf282' + 'd0e7a3098092775ccb37ca9d6b2e4b7d'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/home/huguesvincent/Documents/cours/m2_finance/cpp/code",
+		"/home/huguesvincent/Documents/cours/m2_finance/cpp/code/headers"
+	],
+	"file_history":
+	[
+		"/home/huguesvincent/Downloads/matlab_BH_demo/README",
+		"/home/huguesvincent/Documents/cours/recherche/ecrit/raj_rao_newman/chapter/part1/graph_spectral_clustering_motivation.tex",
+		"/home/huguesvincent/Documents/cours/recherche/ecrit/raj_rao_newman/raj_rao_newman.tex",
+		"/home/huguesvincent/Documents/cours/recherche/ecrit/raj_rao_newman/chapter/part2/generalisation.tex",
+		"/home/huguesvincent/Documents/cours/recherche/ecrit/raj_rao_newman/chapter/part2/model.tex",
+		"/home/huguesvincent/Documents/cours/recherche/ecrit/raj_rao_newman/chapter/simulation.tex",
+		"/home/huguesvincent/Documents/cours/recherche/ecrit/raj_rao_newman/chapter/part2/simulation.tex\n",
+		"/home/huguesvincent/Documents/cours/m2_finance/cpp/instructions.txt",
+		"/home/huguesvincent/Documents/cours/recherche/ecrit/raj_rao_newman/chapter/generalisation.tex",
+		"/home/huguesvincent/Documents/cours/recherche/ecrit/raj_rao_newman/chapter/model.tex",
+		"/tmp/ImageScan_EN-US.sh",
+		"/usr/local/bin/ImageScan_EN-US.sh",
+		"/home/huguesvincent/Downloads/imagescan-bundle-ubuntu-16.04-1.3.28.x64.deb/README.rst",
+		"/home/huguesvincent/Documents/cours/m2_finance/cpp/_HestonModel/monte_carlo_pricing.h",
+		"/home/huguesvincent/Documents/cours/m2_finance/cpp/_HestonModel/monte_carlo_pricing.cpp",
+		"/home/huguesvincent/.config/sublime-text-3/Cache/LaTeXTools/5cf919a167716a52f3b126060f603f6e/raj_rao_newman.log",
+		"/home/huguesvincent/Documents/cours/recherche/ecrit/raj_rao_newman/b.bib",
+		"/home/huguesvincent/Documents/cours/recherche/ecrit/raj_rao_newman/chapter/graph_spectral_clustering_motivation.tex",
+		"/home/huguesvincent/Documents/cours/recherche/ecrit/raj_rao_newman/chapter/graph_spectral_clustering_perspectives.tex",
+		"/home/huguesvincent/Documents/cours/recherche/todo.md",
+		"/home/huguesvincent/.ipython/profile_default/ipython_config.py",
+		"/home/huguesvincent/Documents/cours/recherche/ecrit/raj_rao_newman/raj_rao_newman.pdf",
+		"/home/huguesvincent/Documents/cours/recherche/ecrit/raj_rao_newman/biblio.bib",
+		"/home/huguesvincent/Documents/.txt/borg_dd.sh",
+		"/home/huguesvincent/.config/sublime-text-3/Packages/GoSublime/CHANGELOG.md",
+		"/home/huguesvincent/prog/ml/cfm/cfm.py",
+		"/home/huguesvincent/Documents/.txt/install.sh",
+		"/home/huguesvincent/Documents/.txt/server.sh",
+		"/home/huguesvincent/Documents/.txt/rm",
+		"/home/huguesvincent/Documents/.txt/borg_ssh.sh",
+		"/home/huguesvincent/Documents/.txt/todo.md",
+		"/home/huguesvincent/Documents/.txt/zshrc",
+		"/home/huguesvincent/prog/bash/install/install.sh",
+		"/home/huguesvincent/Documents/.txt/i3config",
+		"/home/huguesvincent/prog/bash/backup/borg_ssh.sh",
+		"/home/huguesvincent/Documents/.txt/film.txt",
+		"/home/huguesvincent/prog/bash/backup/borg.sh",
+		"/home/huguesvincent/Downloads/public_MAPE.py",
+		"/home/huguesvincent/.oh-my-zsh/oh-my-zsh.sh",
+		"/home/huguesvincent/.bashrc",
+		"/home/~",
+		"/home/huguesvincent/prog/bash/mkmobx/node_modules/react-dom/PATENTS",
+		"/home/huguesvincent/Documents/cv_en/cv/activites.tex",
+		"/home/huguesvincent/Documents/cours/m2_finance/stat/tp3/cut.py",
+		"/home/huguesvincent/Documents/cours/m2_finance/stat/PIB1950.csv",
+		"/home/huguesvincent/Documents/cv_en/cv/projets.tex",
+		"/home/huguesvincent/Documents/cv_en/cv/experience.tex",
+		"/home/huguesvincent/Documents/cv_en/cv/skills.tex",
+		"/home/huguesvincent/Documents/cv_en/cv/education.tex",
+		"/home/huguesvincent/.i3/config",
+		"/home/huguesvincent/Documents/cv_en/cv.tex",
+		"/tmp/mozilla_huguesvincent0/Recrutement-Master.pdf",
+		"/home/huguesvincent/Documents/cv/cv/education.tex",
+		"/home/huguesvincent/.config/sublime-text-3/Packages/User/LaTeXTools.sublime-settings",
+		"/home/huguesvincent/Documents/cv/cv.sublime-project",
+		"/home/huguesvincent/Documents/cv/cv/certifications.tex",
+		"/home/huguesvincent/Documents/cv/cv/activites.tex",
+		"/home/huguesvincent/Documents/cv/.gitignore",
+		"/home/huguesvincent/.config/sublime-text-3/Packages/LaTeXTools/LaTeXTools.sublime-settings",
+		"/home/huguesvincent/prog/chronolunch/chronolunch-app/src/reducers/index.js",
+		"/home/huguesvincent/prog/chronolunch/chronolunch-app/package.json",
+		"/tmp/mozilla_huguesvincent0/generate.vim",
+		"/home/huguesvincent/.config/compton.conf",
+		"/home/huguesvincent/prog/bash/toggletouchpad.sh",
+		"/home/huguesvincent/prog/bash/kbdbacklight.sh",
+		"/home/huguesvincent/.i3/i3blocks.conf",
+		"/home/huguesvincent/.i3/i3status.conf",
+		"/home/huguesvincent/prog/bash/low_battery.bash",
+		"/home/huguesvincent/crontab",
+		"/tmp/crontab.fR2qjP/crontab",
+		"/tmp/crontab.AE9Vyl/crontab",
+		"/tmp/crontab.WLzSLM/crontab",
+		"/tmp/crontab.8xBr0r/crontab",
+		"/tmp/crontab.M53mow/crontab",
+		"/home/huguesvincent/prog/bash/low_battery.sh",
+		"/tmp/crontab.arhtaU/crontab",
+		"/home/huguesvincent/.i3/defaults",
+		"/home/huguesvincent/Documents/.txt/LinuxShell.txt",
+		"/home/huguesvincent/Documents/.txt/profile",
+		"/home/huguesvincent/.config/sublime-text-3/Packages/User/Package Control.sublime-settings",
+		"/home/huguesvincent/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
+		"/home/huguesvincent/prog/bash/mklatex/mklatex.sh",
+		"/Data/backup/install.sh",
+		"/home/huguesvincent/Android/Sdk/tools/bin/avdmanager",
+		"/home/huguesvincent/prog/android/ReactCalculator/android/app/build.gradle",
+		"/home/huguesvincent/AwesomeProject/android/app/build.gradle",
+		"/home/huguesvincent/AwesomeProject/android/app/local.properties",
+		"/tmp/packages.json",
+		"/tmp/key_bindings.json",
+		"/home/huguesvincent/.config/sublime-text-3/Packages/User/Package Control.last-run",
+		"/home/huguesvincent/.config/sublime-text-3/Packages/User/Package Control.user-ca-bundle",
+		"/home/huguesvincent/.config/sublime-text-3/Installed Packages/PyV8/linux64-p3/config.json",
+		"/tmp/mozilla_huguesvincent0/insertionv8.v",
+		"/home/huguesvincent/prog/concevoir_logiciel.md",
+		"/home/huguesvincent/Documents/.txt/economie_finance.md",
+		"/home/huguesvincent/prog/web/coffee/package.json",
+		"/home/huguesvincent/Documents/.txt/history.md",
+		"/home/huguesvincent/Documents/.txt/data",
+		"/home/huguesvincent/Documents/.txt/python.txt",
+		"/home/huguesvincent/Documents/.txt/SublimeText.md",
+		"/home/huguesvincent/Documents/.txt/a.out",
+		"/home/huguesvincent/.config/sublime-text-3/Local/Session.sublime_session",
+		"/etc/profile",
+		"/home/huguesvincent/Documents/.txt/Unix.md",
+		"/home/huguesvincent/Documents/.txt/Git.txt",
+		"/home/huguesvincent/.zshrc",
+		"/tmp/spark-lab/build.sbt",
+		"/home/huguesvincent/Documents/.txt/security.md",
+		"/home/huguesvincent/.ssh/config",
+		"/home/huguesvincent/.ssh/known_hosts",
+		"/home/huguesvincent/Documents/.txt/slqite3.md",
+		"/etc/bash.bashrc",
+		"/home/huguesvincent/Downloads/selfoss (315)_files/whoami.js",
+		"/home/huguesvincent/.config/sublime-text-3/Packages/SublimeREPL/config/Scala/Main.sublime-menu",
+		"/home/huguesvincent/.config/sublime-text-3/Packages/SublimeREPL/config/Scala/Default.sublime-commands",
+		"/home/huguesvincent/.config/sublime-text-3/Packages/User/SublimeREPL.sublime-settings",
+		"/home/huguesvincent/.config/sublime-text-3/Packages/SublimeREPL/SublimeREPL.sublime-settings",
+		"/tmp/zlogin",
+		"/home/huguesvincent/Documents/path.txt",
+		"/home/huguesvincent/Documents/.txt/txt.sublime-project",
+		"/home/huguesvincent/.local/share/virtualenvs/pdf/lib/python3.5/site-packages/pdfrw/pagemerge.py",
+		"/home/huguesvincent/prog/python/booklet.py",
+		"/home/huguesvincent/.local/share/virtualenvs/pdf/lib/python3.5/site-packages/pdfrw/buildxobj.py",
+		"/home/huguesvincent/prog/python/test.py",
+		"/home/huguesvincent/prog/invenis/graph_content.json",
+		"/home/huguesvincent/Documents/.txt/dictionaire.txt",
+		"/home/huguesvincent/prog/python/test/doublon.py",
+		"/home/huguesvincent/prog/python/test/a.txt"
+	],
+	"find":
+	{
+		"height": 27.0
+	},
+	"find_in_files":
+	{
+		"height": 343.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "headers/Payoff.h",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 662,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								210,
+								210
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.clone": -1,
+							"bracket_highlighter.clone_locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.clone_regions":
+							[
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content"
+							],
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										656,
+										661
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/hash.png",
+										"region.yellowish"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										1,
+										7
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content"
+							],
+							"git_gutter_is_enabled": true,
+							"git_savvy.repo_path": "/home/huguesvincent/Documents/cours/m2_finance/cpp/code",
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 27.0
+	},
+	"input":
+	{
+		"height": 117.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.GitSavvy":
+	{
+		"height": 98.0
+	},
+	"output.GoSublime-main-output":
+	{
+		"height": 98.0
+	},
+	"output.SublimeLinter":
+	{
+		"height": 0.0
+	},
+	"output.exec":
+	{
+		"height": 92.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.latextools":
+	{
+		"height": 226.0
+	},
+	"output.mdpopups":
+	{
+		"height": 0.0
+	},
+	"output.show_commit_info":
+	{
+		"height": 98.0
+	},
+	"pinned_build_system": "Packages/LaTeXTools/LaTeX.sublime-build",
+	"project": "var_swap.sublime-project",
+	"replace":
+	{
+		"height": 50.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"part2",
+				"chapter/part2/model.tex"
+			],
+			[
+				"part1",
+				"chapter/part1/graph_spectral_clustering_motivation.tex"
+			],
+			[
+				"sim",
+				"chapter/simulation.tex"
+			],
+			[
+				"mode",
+				"chapter/model.tex"
+			],
+			[
+				"bi",
+				"b.bib"
+			],
+			[
+				"gra",
+				"chapter/graph_spectral_clustering_motivation.tex"
+			],
+			[
+				"g",
+				"chapter/generalisation.tex"
+			],
+			[
+				"gen",
+				"chapter/generalisation.tex"
+			],
+			[
+				"gene",
+				"chapter/generalisation.tex"
+			],
+			[
+				"bib",
+				"b.bib"
+			],
+			[
+				"ge",
+				"chapter/generalisation.tex"
+			],
+			[
+				"",
+				"chapter/ch2.tex"
+			],
+			[
+				"zs",
+				"zshrc"
+			],
+			[
+				"i",
+				"i3config"
+			],
+			[
+				"isnt",
+				"install.sh"
+			],
+			[
+				"ins",
+				"install.sh"
+			],
+			[
+				"p",
+				"bash/mkmobx/node_modules/react-dom/PATENTS"
+			],
+			[
+				"pro",
+				"cv/projets.tex"
+			],
+			[
+				"educ",
+				"cv/education.tex"
+			],
+			[
+				"sk",
+				"cv/skills.tex"
+			],
+			[
+				"ex",
+				"cv/experience.tex"
+			],
+			[
+				"porj",
+				"cv/projets.tex"
+			],
+			[
+				"ed",
+				"cv/education.tex"
+			],
+			[
+				"sta",
+				"STATUS: cv"
+			],
+			[
+				"ac",
+				"cv/activites.tex"
+			],
+			[
+				"por",
+				"cv.sublime-project"
+			],
+			[
+				"edu",
+				"cv/education.tex"
+			],
+			[
+				"act",
+				"cv/activites.tex"
+			],
+			[
+				"cer",
+				"cv/certifications.tex"
+			],
+			[
+				"ski",
+				"cv/skills.tex"
+			],
+			[
+				"pa",
+				"package.json"
+			],
+			[
+				"clienta",
+				"src/components/ClientApp.js"
+			],
+			[
+				"pack",
+				"package.json"
+			],
+			[
+				"i3",
+				"i3Config"
+			],
+			[
+				"zsh",
+				"zshrc"
+			],
+			[
+				"fina",
+				"economie_finance.md"
+			],
+			[
+				"fin",
+				"economie_finance.md"
+			],
+			[
+				"z",
+				"zshrc"
+			],
+			[
+				"inu",
+				"LinuxShell.txt"
+			],
+			[
+				"his",
+				"history.md"
+			],
+			[
+				"li",
+				"LinuxShell.txt"
+			],
+			[
+				"sub",
+				"SublimeText.md"
+			],
+			[
+				"pyt",
+				"python.txt"
+			],
+			[
+				"se",
+				"security.md"
+			],
+			[
+				"sc",
+				"security.md"
+			],
+			[
+				"uni",
+				"Unix.md"
+			],
+			[
+				"a",
+				"a.out"
+			],
+			[
+				"t",
+				"txt.sublime-project"
+			],
+			[
+				"ec",
+				"economie_finance.md"
+			],
+			[
+				"l",
+				"LinuxShell.txt"
+			],
+			[
+				"di",
+				"dictionaire.txt"
+			],
+			[
+				"à",
+				"à faire.txt"
+			],
+			[
+				"ne",
+				"New Text Document.txt"
+			],
+			[
+				"sh",
+				"LinuxShell.txt"
+			],
+			[
+				"pyh",
+				"python.txt"
+			],
+			[
+				"lin",
+				"LinuxShell.txt"
+			],
+			[
+				"st",
+				"stages.md"
+			],
+			[
+				"su",
+				"SublimeText.txt"
+			],
+			[
+				"dic",
+				"dictionaire.txt"
+			],
+			[
+				"n",
+				"New Text Document.txt"
+			],
+			[
+				"pyth",
+				"python.txt"
+			],
+			[
+				"àfa",
+				"à faire.txt"
+			],
+			[
+				"she",
+				"LinuxShell.txt"
+			],
+			[
+				"py",
+				"basics_in_python.txt"
+			],
+			[
+				"pn",
+				"src/users/PNC.java"
+			],
+			[
+				"pi",
+				"src/users/Pilote.java"
+			],
+			[
+				"cop",
+				"src/users/Copilote.java"
+			],
+			[
+				"m",
+				"src/users/MembreEquipage.java"
+			],
+			[
+				"per",
+				"src/users/Personne.java"
+			],
+			[
+				"tes",
+				"src/TestUnitaire.java"
+			],
+			[
+				"typ",
+				"src/airfrance/TypeAvion.java"
+			],
+			[
+				"avi",
+				"src/airfrance/Avion.java"
+			],
+			[
+				"vol",
+				"src/airfrance/Vol.java"
+			],
+			[
+				"av",
+				"src/airfrance/Avion.java"
+			],
+			[
+				"ad",
+				"src/users/Administrateur.java"
+			],
+			[
+				"e",
+				"src/airfrance/Equipage.java"
+			],
+			[
+				"eq",
+				"src/airfrance/Equipage.java"
+			],
+			[
+				"ta",
+				"src/airfrance/TableauVol.java"
+			],
+			[
+				"te",
+				"src/TestValidation.java"
+			],
+			[
+				"ty",
+				"src/airfrance/TypeAvion.java"
+			],
+			[
+				"tab",
+				"src/airfrance/TableauVol.java"
+			],
+			[
+				"main",
+				"src/Main.java"
+			],
+			[
+				"me",
+				"src/users/MembreEquipage.java"
+			],
+			[
+				"man",
+				"src/users/Manager.java"
+			],
+			[
+				"am",
+				"src/users/Administrateur.java"
+			],
+			[
+				"gene2",
+				"ex2/gene2.cpp"
+			],
+			[
+				"anaco",
+				"~/.config/sublime-text-3/Packages/Anaconda/Anaconda.sublime-settings"
+			],
+			[
+				"re",
+				"requirements.txt"
+			],
+			[
+				"vi",
+				"nutrition/views.py"
+			],
+			[
+				"adm",
+				"accounts/admin.py"
+			],
+			[
+				"d",
+				"nutrition/templates/nutrition/productDB.html"
+			],
+			[
+				"view",
+				"crm/views.py"
+			],
+			[
+				"htm",
+				"crm/templates/crm/crm.html"
+			],
+			[
+				"model",
+				"accounts/models.py"
+			],
+			[
+				"html",
+				"accounts/templates/accounts/modify_info.html"
+			],
+			[
+				"suiv",
+				"nutrition/templates/nutrition/suivi.html"
+			],
+			[
+				"nutritiov",
+				"nutrition/views.py"
+			],
+			[
+				"crmv",
+				"crm/views.py"
+			],
+			[
+				"wam",
+				"warm/templates/warm/warm.html"
+			],
+			[
+				"fo",
+				"crm/forms.py"
+			],
+			[
+				"nutmode",
+				"nutrition/models.py"
+			],
+			[
+				"viw",
+				"accounts/views.py"
+			],
+			[
+				"form",
+				"crm/forms.py"
+			],
+			[
+				"wamr",
+				"warm/templates/warm/warm.html"
+			],
+			[
+				"ho",
+				"warm/templates/warm/home.html"
+			],
+			[
+				"crmur",
+				"crm/urls.py"
+			],
+			[
+				"url",
+				"nutrico/urls.py"
+			],
+			[
+				"nutvie",
+				"nutrition/views.py"
+			],
+			[
+				"nuturl",
+				"nutrico/urls.py"
+			],
+			[
+				"warm",
+				"warm/templates/warm/warm.html"
+			],
+			[
+				"acmod",
+				"accounts/models.py"
+			],
+			[
+				"mod",
+				"accounts/models.py"
+			],
+			[
+				"nutrimo",
+				"nutrition/models.py"
+			],
+			[
+				"crmcon",
+				"crm/templates/crm/crm_client_contact.html"
+			],
+			[
+				"crmu",
+				"crm/urls.py"
+			],
+			[
+				"crm_cl",
+				"crm/static/crm/css/crm_client.css"
+			],
+			[
+				"crmcl",
+				"crm/templates/crm/crm_client.html"
+			],
+			[
+				"csscrm",
+				"crm/static/crm/css/crm_client.css"
+			],
+			[
+				"crmfo",
+				"crm/forms.py"
+			],
+			[
+				"models",
+				"warm/models.py"
+			],
+			[
+				"crmht",
+				"crm/templates/crm/crm.html"
+			],
+			[
+				"warmht",
+				"warm/templates/warm/warm.html"
+			],
+			[
+				"cal",
+				"warm/static/warm/css/calendar.css"
+			],
+			[
+				"hom",
+				"warm/templates/warm/home.html"
+			],
+			[
+				"accmo",
+				"accounts/models.py"
+			],
+			[
+				"crmcss",
+				"crm/static/crm/css/crm_client.css"
+			],
+			[
+				"crmhtm",
+				"crm/templates/crm/crm.html"
+			],
+			[
+				"conta",
+				"crm/templates/crm/crm_client_contact.html"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"tx",
+				"~/Documents/.txt/txt.sublime-project"
+			],
+			[
+				"manager",
+				"~/prog/web/manager/hv/hv.sublime-project"
+			],
+			[
+				"m2s",
+				"~/Documents/cours/m2_finance/stage/stageM2.sublime-project"
+			],
+			[
+				"cv",
+				"~/Documents/cv_en/cv.sublime-project"
+			],
+			[
+				"",
+				"~/prog/bash/install/install_linux.sublime-project"
+			],
+			[
+				"sppo",
+				"~/prog/ml/spooky_author/spooky_author.sublime-project"
+			],
+			[
+				"lm",
+				"~/Documents/cours/m2_finance/lettre_motivation/lettre_motivation.sublime-project"
+			],
+			[
+				"le",
+				"~/Documents/cours/m2_finance/lettre_motivation/lettre_motivation.sublime-project"
+			],
+			[
+				"chr",
+				"~/prog/chronolunch/chronolunch-app/chronolunch_app.sublime-project"
+			],
+			[
+				"ar",
+				"~/prog/archeolog/ArcheoBrick/archeoBrick.sublime-project"
+			],
+			[
+				"sc",
+				"~/Documents/cours/m2/high_performance_computing/scala/tp1Scala.sublime-workspace"
+			],
+			[
+				"m",
+				"~/Documents/cours/m1/stage/latex/stageM1.sublime-project"
+			],
+			[
+				"brick",
+				"~/prog/archeolog/ArcheoBrick/archeoBrick.sublime-project"
+			],
+			[
+				"i",
+				"/Data/backup/installOs.sublime-project"
+			],
+			[
+				"scal",
+				"~/prog/scala/hello/scala_hw.sublime-project"
+			],
+			[
+				"nu",
+				"~/prog/django/nutrico/nutrico.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 213.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
