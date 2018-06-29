@@ -19,6 +19,7 @@
 #include "utils/plot.h"
 #include "utils/utils.h"
 #include "headers/HestonEuler.h"
+#include "headers/HestonBroadieKaya.h"
 #include "headers/MonteCarlo.h"
 
 
@@ -45,6 +46,7 @@ int main(int argc, char **argv)
     rho = - 0.6;
 
 
+    HestonBroadieKaya hestonBroadieKaya = HestonBroadieKaya(T,N, rate, kappa, theta, sigma, rho, S_0, V_0);
     HestonEuler hestonEuler = HestonEuler(T,N, rate, kappa, theta, sigma, rho, S_0, V_0);
     std::vector<std::vector<double>> trials;
     plot(hestonEuler.generate_paths("V", 20), T);

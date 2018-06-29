@@ -19,7 +19,7 @@
 
 class ProcessGenerator {
 public:
-	virtual void new_trial() = 0;
+	virtual std::vector<std::vector<double>> generate_paths(const int nb_trials) = 0;
 };
 
 #endif

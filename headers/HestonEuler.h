@@ -30,11 +30,20 @@ public:
  	void new_trial()
     {
     	correlated_draws(W_v, W_s);
-    	calc_vol_path(W_v, V);
-    	calc_spot_path(W_s, V, S);
-    	calc_log_spot_path(W_s, V, lnS);
+    	generate_vol_path(W_v, V);
+    	generate_spot_path(W_s, V, S);
+    	generate_log_spot_path(W_s, V, lnS);
     }
-
+	std::vector<std::vector<double>> generate_paths(const int nb_trials)
+	{
+	    std::vector<std::vector<double>> trials;
+		for(int i(0); i<nb_trials; i++)
+		{
+		    new_trial();
+				trials.push_back(lnS);
+		}
+		return trials;	
+	}
     std::vector<std::vector<double>> generate_paths(const string path_name, const int nb_trials)
     {
 	    std::vector<std::vector<double>> trials;
@@ -66,7 +75,7 @@ private:
 			corr_draws[i] = corr_draws[i-1] + delta_corr_draws[i];
 	    }
 	}
-	void calc_vol_path(const vector<double>& vol_draws, vector<double>& vol_path)
+	void generate_vol_path(const vector<double>& vol_draws, vector<double>& vol_path)
 	{
 		vol_path[0] = V_0;
 	    for (int i(1); i<N; i++)
@@ -77,7 +86,7 @@ private:
 	    }
 	}
 
-	void calc_spot_path(const vector<double>& spot_draws, const vector<double>& vol_path, vector<double>& spot_path)
+	void generate_spot_path(const vector<double>& spot_draws, const vector<double>& vol_path, vector<double>& spot_path)
 	{	
 		spot_path[0] = S_0;
 
@@ -88,7 +97,7 @@ private:
 	        spot_path[i] = spot_path[i-1] + rate*spot_path[i-1]*dt + sqrt(v_max)*spot_path[i-1]*dW_s;
 	    }
 	}
-	void calc_log_spot_path(const vector<double>& spot_draws, const vector<double>& vol_path, vector<double>& log_spot_path)
+	void generate_log_spot_path(const vector<double>& spot_draws, const vector<double>& vol_path, vector<double>& log_spot_path)
 	{	
 		
 		log_spot_path[0] = log(S_0);
