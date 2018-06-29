@@ -7,6 +7,7 @@
 #include <time.h>
 #include <fstream>
 #include <string>
+#include <random>
 
 #include <numeric>
 #include <vector>
@@ -15,17 +16,24 @@
 #include <functional>
 
 using namespace std;
+std::random_device rd{};
+std::mt19937 gen{rd()};
+
 double max(const double x, const double y){ return x>y? x : y;}
 double min(const double x, const double y){ return x<y? x : y;}
 
-double gaussian_draw(double mu = 0, double sigma = 1)
+double uniform_draw(const double a, const double b)
 {
-	double u = ((double) rand() / (RAND_MAX));
-	double v = ((double) rand() / (RAND_MAX));
-	return mu + sigma * ( sqrt(-2*log(u)) * sin(2*M_PI*v) );
+    std::uniform_int_distribution<> dis{0, 99};
+	return  dis(gen);
 }
 
-double gaussian_cdf_inverse(double u)
+double gaussian_draw(const double  mu = 0, const double  sigma = 1)
+{
+    std::normal_distribution<> dis{mu, sigma};
+    return dis(gen);}
+
+double gaussian_cdf_inverse(const double  u)
 {
 	// Returns the inverse of cumulative normal distribution function.
 	// Reference: Moro, B., 1995, "The Full Monte," RISK (February), 57-58.
@@ -75,7 +83,6 @@ double gaussian_cdf_inverse(double u)
 	if( x < 0.0 ) r = -r;
 
 	return (r);
-
 }
 
 void p(const std::vector<double> v)
@@ -86,25 +93,25 @@ void p(const std::vector<double> v)
 	}
 	cout << "\n";
 }
-void p(string var_name)
+void p(const string var_name)
 {
 	cout << var_name << "\n";
 }
-void p(string txt, double var_name)
+void p(const string txt, const double var_name)
 {
 	cout << txt << ": " << var_name << "\n";
 }
 
-void p(double var_name)
+void p(const double var_name)
 {
 	cout << var_name << "\n";
 }
-void p(string txt, int var_name)
+void p(const string txt, const int var_name)
 {
 	cout << txt << ": " << var_name << "\n";
 }
 
-void p(int var_name)
+void p(const int var_name)
 {
 	cout << var_name << "\n";
 }
