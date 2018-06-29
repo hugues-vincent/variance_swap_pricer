@@ -18,8 +18,7 @@
 
 #include "utils/plot.h"
 #include "utils/utils.h"
-#include "headers/Heston.h"
-#include "headers/Payoff.h"
+#include "headers/HestonEuler.h"
 #include "headers/MonteCarlo.h"
 
 

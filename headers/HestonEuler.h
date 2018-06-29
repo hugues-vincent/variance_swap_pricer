@@ -16,8 +16,9 @@
 
 #include "../utils/plot.h"
 #include "../utils/utils.h"
+#include "./ProcessGenerator.h"
 
-class HestonEuler {
+class HestonEuler : public ProcessGenerator {
 public:
     HestonEuler(double T, int N, double r, double k, double t, double s, double rho, double S_0, double V_0):
     T(T), N(N), dt(T/N), S(N), lnS(N), V(N), rate(r), kappa(k), theta(t), sigma(s), rho(rho), W_s(N), W_v(N), S_0(S_0), V_0(V_0){
@@ -98,7 +99,6 @@ private:
 	        log_spot_path[i] = log_spot_path[i-1] + (rate - v_max/2)*dt + sqrt(v_max)*dW_s;
 	    }
 	}
-
 };
 
 #endif
