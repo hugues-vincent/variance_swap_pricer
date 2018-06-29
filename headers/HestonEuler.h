@@ -25,7 +25,9 @@ public:
     	new_trial();
     }
     std::vector<double> W_s, W_v, V, S, lnS;
-    double rate, kappa, theta, sigma, rho, T, N, dt, S_0, V_0;
+    double rate, kappa, theta, sigma, rho;
+    double T, N, dt;
+    double  S_0, V_0;
 
  	void new_trial()
     {
