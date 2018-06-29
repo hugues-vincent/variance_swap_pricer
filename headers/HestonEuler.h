@@ -1,5 +1,5 @@
-#ifndef HESTON_EULER_MARUYAMA_H
-#define HESTON_EULER_MARUYAMA_H
+#ifndef HESTON_EULER_H
+#define HESTON_EULER_H
 
 #include <iostream>
 #include <cmath>
@@ -17,13 +17,13 @@
 #include "../utils/plot.h"
 #include "../utils/utils.h"
 
-class HestonEulerMaruyama {
+class HestonEuler {
 public:
-    HestonEulerMaruyama(double T, int N, double r, double k, double t, double s, double rho, double S_0, double V_0):
-    T(T), N(N), dt(T/N), S(N), LnS(N), V(N), rate(r), kappa(k), theta(t), sigma(s), rho(rho), W_s(N), W_v(N), S_0(S_0), V_0(V_0){
+    HestonEuler(double T, int N, double r, double k, double t, double s, double rho, double S_0, double V_0):
+    T(T), N(N), dt(T/N), S(N), lnS(N), V(N), rate(r), kappa(k), theta(t), sigma(s), rho(rho), W_s(N), W_v(N), S_0(S_0), V_0(V_0){
     	new_trial();
     }
-    std::vector<double> W_s, W_v, V, S, LnS;
+    std::vector<double> W_s, W_v, V, S, lnS;
     double rate, kappa, theta, sigma, rho, T, N, dt, S_0, V_0;
 
  	void new_trial()
@@ -31,7 +31,7 @@ public:
     	correlated_draws(W_v, W_s);
     	calc_vol_path(W_v, V);
     	calc_spot_path(W_s, V, S);
-    	calc_log_spot_path(W_s, V, LnS);
+    	calc_log_spot_path(W_s, V, lnS);
     }
 
     std::vector<std::vector<double>> generate_paths(const string path_name, const int nb_trials)
@@ -49,7 +49,7 @@ public:
 			else if (path_name == "S")
 				trials.push_back(S);
 			else
-				trials.push_back(LnS);
+				trials.push_back(lnS);
 		}
 		return trials;
     }

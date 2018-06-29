@@ -27,6 +27,8 @@ double gaussian_draw(double mu = 0, double sigma = 1)
 
 double gaussian_cdf_inverse(double u)
 {
+	// Returns the inverse of cumulative normal distribution function.
+	// Reference: Moro, B., 1995, "The Full Monte," RISK (February), 57-58.
 	double a[4] = {
 		2.50662823884,
 		-18.61500062529,

@@ -18,7 +18,7 @@
 
 #include "utils/plot.h"
 #include "utils/utils.h"
-#include "headers/HestonEulerMaruyama.h"
+#include "headers/Heston.h"
 #include "headers/Payoff.h"
 #include "headers/MonteCarlo.h"
 
@@ -40,15 +40,15 @@ int main(int argc, char **argv)
     S_0 = 10;
     V_0 = 1;
     rate = 0.05;
-    kappa = 10;
-    theta = 0.1;
-    sigma = 0.3;
+    kappa = 1;
+    theta = 0.5;
+    sigma = 0.1;
     rho = - 0.6;
 
 
-    HestonEulerMaruyama heston = HestonEulerMaruyama(T,N, rate, kappa, theta, sigma, rho, S_0, V_0);
+    HestonEuler hestonEuler = HestonEuler(T,N, rate, kappa, theta, sigma, rho, S_0, V_0);
     std::vector<std::vector<double>> trials;
-    plot(heston.generate_paths("V", 20), T);
+    plot(hestonEuler.generate_paths("V", 20), T);
     // plot(heston.generate_paths("S", 20), T);
     // plot(heston.generate_paths("LnS", 20), T);
     return 0;
