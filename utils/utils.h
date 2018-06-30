@@ -53,34 +53,34 @@ double gaussian_draw(const double  mu = 0, const double  sigma = 1)
 // =============================
 // Display utilities function
 // =============================
-	void p(const std::vector<double> v)
+void p(const std::vector<double> v)
+{
+	for(int i(0); i<v.size(); i++)
 	{
-		for(int i(0); i<v.size(); i++)
-		{
-			cout << v[i] <<" ";
-		}
-		cout << "\n";
+		cout << v[i] <<" ";
 	}
-	void p(const string var_name)
-	{
-		cout << var_name << "\n";
-	}
-	void p(const string txt, const double var_name)
-	{
-		cout << txt << ": " << var_name << "\n";
-	}
+	cout << "\n";
+}
+void p(const string var_name)
+{
+	cout << var_name << "\n";
+}
+void p(const string txt, const double var_name)
+{
+	cout << txt << ": " << var_name << "\n";
+}
 
-	void p(const double var_name)
-	{
-		cout << var_name << "\n";
-	}
-	void p(const string txt, const int var_name)
-	{
-		cout << txt << ": " << var_name << "\n";
-	}
+void p(const double var_name)
+{
+	cout << var_name << "\n";
+}
+void p(const string txt, const int var_name)
+{
+	cout << txt << ": " << var_name << "\n";
+}
 
-	void p(const int var_name)
-	{
-		cout << var_name << "\n";
-	}
+void p(const int var_name)
+{
+	cout << var_name << "\n";
+}
 #endif
