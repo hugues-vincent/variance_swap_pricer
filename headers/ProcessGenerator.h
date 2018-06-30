@@ -17,9 +17,11 @@
 #include "../utils/plot.h"
 #include "../utils/utils.h"
 
+typedef std::vector<double> ordinates;
+
 class ProcessGenerator {
 public:
-	virtual std::vector<std::vector<double>> generate_paths(const int nb_trials) = 0;
+	virtual std::vector<ordinates> generate_paths(const int nb_trials) = 0;
 };
 
 #endif

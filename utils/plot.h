@@ -6,7 +6,7 @@
 #include <math.h>
 
 using namespace std;
-using curve = std::vector<std::pair<double, double>>;
+typedef std::vector<std::pair<double, double>> curve;
 typedef std::vector<double> ordinates;
 
 curve path_to_curve(const ordinates path, const double T) 
