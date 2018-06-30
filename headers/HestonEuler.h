@@ -23,31 +23,22 @@ typedef std::vector<double> ordinates;
 class HestonEuler : public ProcessGenerator {
 public:
     HestonEuler(double T, int N, double r, double k, double t, double s, double rho, double S_0, double V_0):
-    ProcessGenerator(N, T), S(N), lnS(N), V(N), rate(r), kappa(k), theta(t), sigma(s), rho(rho), W_s(N), W_v(N), S_0(S_0), V_0(V_0){
+    ProcessGenerator(N, T), V(N), rate(r), kappa(k), theta(t), sigma(s), rho(rho), W_s(N), W_v(N), S_0(S_0), V_0(V_0){
     	new_trial();
     }
-    ordinates W_s, W_v, V, S, lnS;
+    ordinates W_s, W_v, V;
     double rate, kappa, theta, sigma, rho;
     double  S_0, V_0;
 
- 	void new_trial()
+ 	ordinates new_trial()
     {
     	correlated_draws(W_v, W_s);
     	generate_vol_path(W_v, V);
     	generate_spot_path(W_s, V, S);
     	generate_log_spot_path(W_s, V, lnS);
+    	return lnS;
     }
-	std::vector<ordinates> generate_paths(const int nb_trials = 1)
-	{
-	    std::vector<ordinates> trials;
-		for(int i(0); i<nb_trials; i++)
-		{
-		    new_trial();
-				trials.push_back(lnS);
-		}
-		return trials;	
-	}
-    std::vector<ordinates> generate_paths(const string path_name, const int nb_trials)
+    std::vector<ordinates> generate_paths(const int nb_trials = 1, const string path_name = "lnS")
     {
 	    std::vector<ordinates> trials;
 		for(int i(0); i<nb_trials; i++)

@@ -23,42 +23,18 @@ typedef std::vector<double> ordinates;
 
 double monte_carlo(ProcessGenerator &process, const int nb_trials)
 {
-	std::vector<ordinates> paths = process.generate_paths(nb_trials);
 	double expectation = 0;
 	p(process.N);
 	for(int i(0) ; i<nb_trials ; i++)
 	{
+		ordinates trial = process.new_trial();
 		for(int j(1) ; j < process.N ;  j++)
 		{
-			expectation += 1;
+			expectation += process.dt * pow(trial[j] - trial[j-1],2) / nb_trials ;
 		}
 	}
 	return expectation;
 }
 
-// class MonteCarlo{
-// public:
-// 	MonteCarlo(ProcessGenerator &process, Payoff payoff):
-// 	 process(process), payoff(payoff){}
-
-// 	ProcessGenerator &process;
-// 	Payoff payoff;
-
-// 	double expectation(const int nb_trials)
-// 	{
-// 		double cumsum_draw = 0;
-// 		std::vector<ordinates> trials = process.generate_paths(nb_trials);
-
-// 		for (int i = 0; i < nb_trials; i++)
-// 		{
-// 			cumsum_draw += payoff(process);
-// 		}
-// 		return cumsum_draw/nb_trials;
-// 	}
-
-// private:
-// 	std::vector<double> draws;
-
-// };
 
 #endif
