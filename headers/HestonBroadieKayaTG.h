@@ -24,7 +24,7 @@ typedef std::vector<double> ordinates;
 class HestonBroadieKayaTG: public ProcessGenerator, public HestonModel {
 public:
     HestonBroadieKayaTG(double T, int N, double r, double k, double t, double s, double rho, double S_0, double V_0, double gamma1, double gamma2):
-    ProcessGenerator(N, T), HestonModel(r, k, t, s, rho, S_0, V_0), V(N), gamma1(gamma1), gamma2(gamma2){
+    ProcessGenerator(N, T), HestonModel(r, k, t, s, rho, S_0, V_0), gamma1(gamma1), gamma2(gamma2){
     	k0 = -rho * kappa * theta / sigma * dt;
     	k1 = gamma1 * dt * (kappa * rho / sigma - 0.5) - rho /sigma;
     	k2 = gamma2 * dt * (kappa * rho / sigma - 0.5) + rho /sigma;
@@ -34,10 +34,10 @@ public:
     }
 
     double gamma1, gamma2;
-    ordinates V;
 
  	ordinates new_trial()
     {
+		reset_paths();
 		generate_vol_path(V);
 		generate_log_spot_path(V, lnS);
 		return lnS;
@@ -84,6 +84,18 @@ private:
 	    {
 	        log_spot_path[i] = log_spot_path[i-1] + k0 + k1 * vol_path[i-1] + k2 * vol_path[i] + sqrt(k3 * vol_path[i-1] + k4 * vol_path[i]) * gaussian_draw();
 	    }
+	}
+	void reset_paths()
+	{
+		V.clear();
+		S.clear();
+		lnS.clear();
+		for (int i(0); i<N; i++)
+		{
+			V.push_back(0);
+			S.push_back(0);
+			lnS.push_back(0);
+		}
 	}
 };
 

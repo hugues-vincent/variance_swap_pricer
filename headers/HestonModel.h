@@ -25,7 +25,7 @@ public:
     HestonModel(double r, double k, double t, double s, double rho, double S_0, double V_0): rate(r), kappa(k), theta(t), sigma(s), rho(rho), S_0(S_0), V_0(V_0){}
     double rate, kappa, theta, sigma, rho;
     double  S_0, V_0;
-
+    ordinates V, S, lnS;
 };
 
 #endif

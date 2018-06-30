@@ -21,10 +21,8 @@ typedef std::vector<double> ordinates;
 
 class ProcessGenerator {
 public:
-	ProcessGenerator(double N, double T): T(T), N(N), dt(T/N), S(N), lnS(N) {}
+	ProcessGenerator(double N, double T): T(T), N(N), dt(T/N) {}
 	double N, T, dt;
-    ordinates S, lnS;
-	
 	virtual ordinates new_trial() = 0;
 };
 

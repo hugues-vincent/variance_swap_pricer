@@ -24,15 +24,15 @@ typedef std::vector<double> ordinates;
 class HestonEuler : public ProcessGenerator, public HestonModel {
 public:
     HestonEuler(double T, int N, double r, double k, double t, double s, double rho, double S_0, double V_0):
-    ProcessGenerator(N, T), HestonModel(r, k, t, s, rho, S_0, V_0), V(N), W_s(N), W_v(N){
+    ProcessGenerator(N, T), HestonModel(r, k, t, s, rho, S_0, V_0){
     	new_trial();
     }
 
     ordinates W_s, W_v;
-    ordinates V;
 
  	ordinates new_trial()
     {
+		reset_paths();
     	correlated_draws(W_v, W_s);
     	generate_vol_path(W_v, V);
     	generate_spot_path(W_s, V, S);
@@ -102,6 +102,23 @@ private:
 	        double dW_s = spot_draws[i] - spot_draws[i-1];
 	        log_spot_path[i] = log_spot_path[i-1] + (rate - v_max/2)*dt + sqrt(v_max)*dW_s;
 	    }
+	}
+
+	void reset_paths()
+	{
+		V.clear();
+		S.clear();
+		lnS.clear();
+		W_s.clear();
+		W_v.clear();
+		for (int i(0); i<N; i++)
+		{
+			V.push_back(0);
+			S.push_back(0);
+			lnS.push_back(0);
+			W_s.push_back(0);
+			W_v.push_back(0);
+		}
 	}
 };
 
