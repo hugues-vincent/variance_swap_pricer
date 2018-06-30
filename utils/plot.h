@@ -2,11 +2,14 @@
 #define PLOT_H
 #include "../plugins/gnuplot-iostream.h"
 #include <string>
+#include <float.h>
+#include <math.h>
 
 using namespace std;
 using curve = std::vector<std::pair<double, double>>;
+typedef std::vector<double> ordinates;
 
-curve path_to_curve(const std::vector<double> path, const double T) 
+curve path_to_curve(const ordinates path, const double T) 
 {
 	curve model_curve = curve();
 	int N = path.size();
@@ -18,9 +21,9 @@ curve path_to_curve(const std::vector<double> path, const double T)
 	return model_curve;
 }
 
-void plot(std::vector<std::vector<double>> paths, const double T, vector<string> names = vector<string>()) 
+void plot(std::vector<ordinates> paths, const double T, vector<string> names = vector<string>()) 
 {
-	double max_= 0 , min_= 0;
+	double max_= -DBL_MAX , min_= DBL_MAX;
 	Gnuplot gp;
 	int nb_curve = paths.size();
 	for(int i(0); i<nb_curve; i++)
