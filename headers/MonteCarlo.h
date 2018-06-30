@@ -18,7 +18,6 @@
 #include "../utils/utils.h"
 #include "./ProcessGenerator.h"
 
-typedef double (*Payoff)(ProcessGenerator &process, int index);
 typedef std::vector<double> ordinates;
 
 double monte_carlo(ProcessGenerator &process, const int nb_trials)
