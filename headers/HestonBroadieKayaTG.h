@@ -17,13 +17,14 @@
 #include "../utils/plot.h"
 #include "../utils/utils.h"
 #include "./ProcessGenerator.h"
+#include "./HestonModel.h"
 
 typedef std::vector<double> ordinates;
 
-class HestonBroadieKayaTG: public ProcessGenerator {
+class HestonBroadieKayaTG: public ProcessGenerator, public HestonModel {
 public:
     HestonBroadieKayaTG(double T, int N, double r, double k, double t, double s, double rho, double S_0, double V_0, double gamma1, double gamma2):
-    ProcessGenerator(N, T), V(N), rate(r), kappa(k), theta(t), sigma(s), rho(rho), W_s(N), W_v(N), S_0(S_0), V_0(V_0), gamma1(gamma1), gamma2(gamma2){
+    ProcessGenerator(N, T), HestonModel(r, k, t, s, rho, S_0, V_0), V(N), gamma1(gamma1), gamma2(gamma2){
     	k0 = -rho * kappa * theta / sigma * dt;
     	k1 = gamma1 * dt * (kappa * rho / sigma - 0.5) - rho /sigma;
     	k2 = gamma2 * dt * (kappa * rho / sigma - 0.5) + rho /sigma;
@@ -32,10 +33,8 @@ public:
     	new_trial();
     }
 
-    ordinates W_s, W_v, V;
-    double rate, kappa, theta, sigma, rho;
-    double  S_0, V_0;
-    double  gamma1, gamma2;
+    double gamma1, gamma2;
+    ordinates V;
 
  	ordinates new_trial()
     {
@@ -52,10 +51,6 @@ public:
 		    new_trial();
 		    if (path_name == "V")
 			    trials.push_back(V);
-			else if (path_name == "W_v")
-				trials.push_back(W_v);
-			else if (path_name == "W_s")
-				trials.push_back(W_s);
 			else if (path_name == "S")
 				trials.push_back(S);
 			else

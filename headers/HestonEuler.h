@@ -17,18 +17,19 @@
 #include "../utils/plot.h"
 #include "../utils/utils.h"
 #include "./ProcessGenerator.h"
+#include "./HestonModel.h"
 
 typedef std::vector<double> ordinates;
 
-class HestonEuler : public ProcessGenerator {
+class HestonEuler : public ProcessGenerator, public HestonModel {
 public:
     HestonEuler(double T, int N, double r, double k, double t, double s, double rho, double S_0, double V_0):
-    ProcessGenerator(N, T), V(N), rate(r), kappa(k), theta(t), sigma(s), rho(rho), W_s(N), W_v(N), S_0(S_0), V_0(V_0){
+    ProcessGenerator(N, T), HestonModel(r, k, t, s, rho, S_0, V_0), V(N), W_s(N), W_v(N){
     	new_trial();
     }
-    ordinates W_s, W_v, V;
-    double rate, kappa, theta, sigma, rho;
-    double  S_0, V_0;
+
+    ordinates W_s, W_v;
+    ordinates V;
 
  	ordinates new_trial()
     {

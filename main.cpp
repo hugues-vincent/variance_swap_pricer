@@ -37,7 +37,7 @@ int main(int argc, char **argv)
 	double rate, kappa, theta, sigma, rho; 
     double gamma1, gamma2;
     // number of draw in the monte carlo method
-    nb_trials = pow(10,3);
+    nb_trials = pow(10,4);
     // number of steps & Maturity
     N = 1000;
     T = 1;
@@ -65,16 +65,17 @@ int main(int argc, char **argv)
     // plot(hestonEuler.generate_paths(), T);
     // plot(hestonTG.generate_paths(), T);
 
-    std::vector<std::vector<ordinates>> c = { 
-            hestonEuler.generate_paths(2), 
-            hestonTG.generate_paths(2)
-        };
-    plot(concat<ordinates>(c), T, {"euler", "euler", "TG", "TG"});
-    p("MC hestonTG", monte_carlo(hestonTG, nb_trials));
-    p("MC hestonEuler", monte_carlo(hestonEuler, nb_trials));
-    plot(hestonTG.generate_paths(1, "V"), T);
+    // std::vector<std::vector<ordinates>> c = { 
+    //         hestonEuler.generate_paths(2), 
+    //         hestonTG.generate_paths(2)
+    //     };
+    // plot(concat<ordinates>(c), T, {"euler", "euler", "TG", "TG"});
     // plot({hestonEuler.V, hestonTG.V}, T, { "hestonEuler", "hestonBroadieKaya"});
     // plot({hestonEuler.lnS, hestonTG.lnS}, T, { "hestonEuler", "hestonBroadieKaya"});
+
+
+    p("MC hestonTG", monte_carlo(hestonTG, nb_trials));
+    p("MC hestonEuler", monte_carlo(hestonEuler, nb_trials));
 
     return 0;
 } 
