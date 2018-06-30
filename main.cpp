@@ -19,7 +19,7 @@
 #include "utils/plot.h"
 #include "utils/utils.h"
 #include "headers/HestonEuler.h"
-#include "headers/HestonBroadieKaya.h"
+#include "headers/HestonBroadieKayaTG.h"
 #include "headers/MonteCarlo.h"
 
 
@@ -31,27 +31,42 @@ int main(int argc, char **argv)
     // === Initialization ===
     srand((unsigned)time(0));
     
-    int N; // number of steps
-    double T; // Maturity
-    double S_0, V_0; // inital conditions for the Heston model SDE
-	double rate, kappa, theta, sigma, rho; //heston model 
+    int N; 
+    double T; 
+    double S_0, V_0; 
+	double rate, kappa, theta, sigma, rho; 
+    double gamma1, gamma2;
+    // number of steps & Maturity
     N = 1000;
     T = 1;
-    S_0 = 10;
+    // inital conditions for the Heston model SDE
+    S_0 = 0.04;
     V_0 = 1;
+    //heston model parameters
     rate = 0.05;
-    kappa = 1;
-    theta = 0.5;
-    sigma = 0.1;
+    kappa = 0.5;
+    theta = 0.04;
+    sigma = 1;
     rho = - 0.6;
+    // TG Scheme parameters
+    gamma1 = 0.5; 
+    gamma2 = 0.5;
 
 
-    HestonBroadieKaya hestonBroadieKaya = HestonBroadieKaya(T,N, rate, kappa, theta, sigma, rho, S_0, V_0);
     HestonEuler hestonEuler = HestonEuler(T,N, rate, kappa, theta, sigma, rho, S_0, V_0);
-    std::vector<std::vector<double>> trials;
-    plot(hestonEuler.generate_paths("V", 20), T);
+    HestonBroadieKayaTG hestonTG = HestonBroadieKayaTG(T,N, rate, kappa, theta, sigma, rho, S_0, V_0, gamma1, gamma2);
+
+    // plot(hestonEuler.generate_paths("W_v", 20), T);
+    // plot(hestonEuler.generate_paths("V", 40), T);
     // plot(heston.generate_paths("S", 20), T);
     // plot(heston.generate_paths("LnS", 20), T);
+    
+
+    
+    // plot(hestonBroadieKaya.generate_paths("V", 1), T);
+    // plot({hestonEuler.V, hestonTG.V}, T, { "hestonEuler", "hestonBroadieKaya"});
+    plot({hestonEuler.lnS, hestonTG.lnS}, T, { "hestonEuler", "hestonBroadieKaya"});
+
     return 0;
 } 
 #endif
