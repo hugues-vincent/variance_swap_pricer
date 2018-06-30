@@ -23,9 +23,11 @@ typedef std::vector<double> ordinates;
 double monte_carlo(ProcessGenerator &process, const int nb_trials)
 {
 	double expectation = 0;
-	p(process.N);
+	int i25 = int(nb_trials * .25) , i50 = int(nb_trials * .50), i75 = int(nb_trials * .75);
 	for(int i(0) ; i<nb_trials ; i++)
 	{
+		if (i == i25  || i == i50 || i == i75)
+			cout << "step: " << i << "/" << nb_trials << endl;
 		ordinates trial = process.new_trial();
 		for(int j(1) ; j < process.N ;  j++)
 		{
@@ -34,6 +36,4 @@ double monte_carlo(ProcessGenerator &process, const int nb_trials)
 	}
 	return expectation;
 }
-
-
 #endif
