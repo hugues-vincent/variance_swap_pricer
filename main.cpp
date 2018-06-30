@@ -58,14 +58,15 @@ int main(int argc, char **argv)
 
     // plot(hestonEuler.generate_paths("W_v", 20), T);
     // plot(hestonEuler.generate_paths("V", 40), T);
-    // plot(heston.generate_paths("S", 20), T);
-    // plot(heston.generate_paths("LnS", 20), T);
+    // plot(hestonEuler.generate_paths("S", 20), T);
+    // plot(hestonEuler.generate_paths("LnS", 20), T);
+    plot(hestonEuler.generate_paths(), T);
     
 
     
     // plot(hestonBroadieKaya.generate_paths("V", 1), T);
     // plot({hestonEuler.V, hestonTG.V}, T, { "hestonEuler", "hestonBroadieKaya"});
-    plot({hestonEuler.lnS, hestonTG.lnS}, T, { "hestonEuler", "hestonBroadieKaya"});
+    // plot({hestonEuler.lnS, hestonTG.lnS}, T, { "hestonEuler", "hestonBroadieKaya"});
 
     return 0;
 } 

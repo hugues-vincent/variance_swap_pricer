@@ -18,13 +18,15 @@
 #include "../utils/utils.h"
 #include "./ProcessGenerator.h"
 
+typedef std::vector<double> ordinates;
+
 class HestonEuler : public ProcessGenerator {
 public:
     HestonEuler(double T, int N, double r, double k, double t, double s, double rho, double S_0, double V_0):
     T(T), N(N), dt(T/N), S(N), lnS(N), V(N), rate(r), kappa(k), theta(t), sigma(s), rho(rho), W_s(N), W_v(N), S_0(S_0), V_0(V_0){
     	new_trial();
     }
-    std::vector<double> W_s, W_v, V, S, lnS;
+    ordinates W_s, W_v, V, S, lnS;
     double rate, kappa, theta, sigma, rho;
     double T, N, dt;
     double  S_0, V_0;
@@ -36,9 +38,9 @@ public:
     	generate_spot_path(W_s, V, S);
     	generate_log_spot_path(W_s, V, lnS);
     }
-	std::vector<std::vector<double>> generate_paths(const int nb_trials)
+	std::vector<ordinates> generate_paths(const int nb_trials = 1)
 	{
-	    std::vector<std::vector<double>> trials;
+	    std::vector<ordinates> trials;
 		for(int i(0); i<nb_trials; i++)
 		{
 		    new_trial();
@@ -46,9 +48,9 @@ public:
 		}
 		return trials;	
 	}
-    std::vector<std::vector<double>> generate_paths(const string path_name, const int nb_trials)
+    std::vector<ordinates> generate_paths(const string path_name, const int nb_trials)
     {
-	    std::vector<std::vector<double>> trials;
+	    std::vector<ordinates> trials;
 		for(int i(0); i<nb_trials; i++)
 		{
 		    new_trial();
@@ -66,9 +68,9 @@ public:
 		return trials;
     }
 private:
-	void correlated_draws(vector<double>& uncorr_draws, vector<double>& corr_draws)
+	void correlated_draws(ordinates& uncorr_draws, ordinates& corr_draws)
 	{
-		std::vector<double> delta_uncorr_draws(N), delta_corr_draws(N);
+		ordinates delta_uncorr_draws(N), delta_corr_draws(N);
 	    for (int i(1); i<corr_draws.size(); i++)
 	    {
 			delta_uncorr_draws[i] = sqrt(dt) * gaussian_draw();
@@ -77,7 +79,7 @@ private:
 			corr_draws[i] = corr_draws[i-1] + delta_corr_draws[i];
 	    }
 	}
-	void generate_vol_path(const vector<double>& vol_draws, vector<double>& vol_path)
+	void generate_vol_path(const ordinates& vol_draws, ordinates& vol_path)
 	{
 		vol_path[0] = V_0;
 	    for (int i(1); i<N; i++)
@@ -88,7 +90,7 @@ private:
 	    }
 	}
 
-	void generate_spot_path(const vector<double>& spot_draws, const vector<double>& vol_path, vector<double>& spot_path)
+	void generate_spot_path(const ordinates& spot_draws, const ordinates& vol_path, ordinates& spot_path)
 	{	
 		spot_path[0] = S_0;
 
@@ -99,7 +101,7 @@ private:
 	        spot_path[i] = spot_path[i-1] + rate*spot_path[i-1]*dt + sqrt(v_max)*spot_path[i-1]*dW_s;
 	    }
 	}
-	void generate_log_spot_path(const vector<double>& spot_draws, const vector<double>& vol_path, vector<double>& log_spot_path)
+	void generate_log_spot_path(const ordinates& spot_draws, const ordinates& vol_path, ordinates& log_spot_path)
 	{	
 		
 		log_spot_path[0] = log(S_0);

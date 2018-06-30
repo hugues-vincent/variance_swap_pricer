@@ -18,6 +18,8 @@
 #include "../utils/utils.h"
 #include "./ProcessGenerator.h"
 
+typedef std::vector<double> ordinates;
+
 class HestonBroadieKayaTG: public ProcessGenerator {
 public:
     HestonBroadieKayaTG(double T, int N, double r, double k, double t, double s, double rho, double S_0, double V_0, double gamma1, double gamma2):
@@ -29,7 +31,8 @@ public:
     	k4 = gamma2 * (1 - pow(rho,2)) * dt;
     	new_trial();
     }
-    std::vector<double> W_s, W_v, V, S, lnS;
+
+    ordinates W_s, W_v, V, S, lnS;
     double rate, kappa, theta, sigma, rho;
     double T, N, dt;
     double  S_0, V_0;
@@ -40,9 +43,9 @@ public:
 		generate_vol_path(V);
 		generate_log_spot_path(V, lnS);
     }
-	std::vector<std::vector<double>> generate_paths(const int nb_trials)
+	std::vector<ordinates> generate_paths(const int nb_trials = 1)
 	{
-	    std::vector<std::vector<double>> trials;
+	    std::vector<ordinates> trials;
 		for(int i(0); i<nb_trials; i++)
 		{
 		    new_trial();
@@ -50,9 +53,9 @@ public:
 		}
 		return trials;	
 	}
-    std::vector<std::vector<double>> generate_paths(const string path_name, const int nb_trials)
+    std::vector<ordinates> generate_paths(const string path_name, const int nb_trials)
     {
-	    std::vector<std::vector<double>> trials;
+	    std::vector<ordinates> trials;
 		for(int i(0); i<nb_trials; i++)
 		{
 		    new_trial();
@@ -73,7 +76,7 @@ public:
 private:
 	double k0, k1, k2, k3, k4;
 	
-	void generate_vol_path(vector<double>& vol_path)
+	void generate_vol_path(ordinates& vol_path)
 	{
 		double m, s2, phi; 
 		double exp_kapa = exp(-kappa * dt);
@@ -87,7 +90,7 @@ private:
 	        vol_path[i] = max(m + sqrt(s2) * gaussian_draw(), 0);
 	    }
 	}
-	void generate_log_spot_path(const vector<double>& vol_path, vector<double>& log_spot_path)
+	void generate_log_spot_path(const ordinates& vol_path, ordinates& log_spot_path)
 	{	
 		
 		log_spot_path[0] = log(S_0);
