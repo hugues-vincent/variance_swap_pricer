@@ -25,29 +25,31 @@
 
 // typedef double (*Payoff)(StochasticModel model_draw);
 
-
+typedef std::vector<double> ordinates;
 int main(int argc, char **argv)
 {
     // === Initialization ===
     srand((unsigned)time(0));
     
-    int N; 
+    int N, nb_trials; 
     double T; 
     double S_0, V_0; 
 	double rate, kappa, theta, sigma, rho; 
     double gamma1, gamma2;
+    // number of draw in the monte carlo method
+    nb_trials = pow(10, 2);
     // number of steps & Maturity
     N = 1000;
     T = 1;
     // inital conditions for the Heston model SDE
-    S_0 = 0.04;
-    V_0 = 1;
+    S_0 = 30;
+    V_0 = 0.1;
     //heston model parameters
-    rate = 0.05;
-    kappa = 0.5;
-    theta = 0.04;
-    sigma = 1;
-    rho = - 0.6;
+    rate = 0.05; // risk free rate
+    kappa = 0.5; // mean reversion coeff
+    theta = 0.04; // long term variance
+    sigma = 0.3; // vol of vol
+    rho = - 0.6; // correlation
     // TG Scheme parameters
     gamma1 = 0.5; 
     gamma2 = 0.5;
@@ -57,14 +59,19 @@ int main(int argc, char **argv)
     HestonBroadieKayaTG hestonTG = HestonBroadieKayaTG(T,N, rate, kappa, theta, sigma, rho, S_0, V_0, gamma1, gamma2);
 
     // plot(hestonEuler.generate_paths("W_v", 20), T);
-    // plot(hestonEuler.generate_paths("V", 40), T);
+    // plot(hestonEuler.generate_paths("V", 20), T);
     // plot(hestonEuler.generate_paths("S", 20), T);
     // plot(hestonEuler.generate_paths("LnS", 20), T);
-    plot(hestonEuler.generate_paths(), T);
-    
+    // plot(hestonEuler.generate_paths(), T);
+    // plot(hestonTG.generate_paths(), T);
 
-    
-    // plot(hestonBroadieKaya.generate_paths("V", 1), T);
+    std::vector<std::vector<ordinates>> c = { 
+            hestonEuler.generate_paths(2), 
+            hestonTG.generate_paths(2)
+        };
+    // plot(concat<ordinates>(c), T, {"euler", "euler", "TG", "TG"});
+    p("MC hestonEuler", monte_carlo(hestonEuler, nb_trials));
+    // plot(hestonTG.generate_paths("V", 1), T);
     // plot({hestonEuler.V, hestonTG.V}, T, { "hestonEuler", "hestonBroadieKaya"});
     // plot({hestonEuler.lnS, hestonTG.lnS}, T, { "hestonEuler", "hestonBroadieKaya"});
 
