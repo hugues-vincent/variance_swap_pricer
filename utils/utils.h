@@ -38,10 +38,10 @@ std::vector<T> concat(std::vector<std::vector<T>>& to_concat_vectors)
 // =============================
 // Random utilities function
 // =============================
-double uniform_draw(const double a, const double b)
+double uniform_draw(const double a=0, const double b=1)
 {
-	std::uniform_int_distribution<> dis{0, 99};
-	return  dis(gen);
+	std::uniform_real_distribution<> dis{a, b};
+	return dis(gen);
 }
 
 double gaussian_draw(const double  mu = 0, const double  sigma = 1)
@@ -53,7 +53,7 @@ double gaussian_draw(const double  mu = 0, const double  sigma = 1)
 // =============================
 // Display utilities function
 // =============================
-void p(const std::vector<double> v)
+void print(const std::vector<double> v)
 {
 	for(int i(0); i<v.size(); i++)
 	{
@@ -61,25 +61,25 @@ void p(const std::vector<double> v)
 	}
 	cout << "\n";
 }
-void p(const string var_name)
+void print(const string var_name)
 {
 	cout << var_name << "\n";
 }
-void p(const string txt, const double var_name)
+void print(const string txt, const double var_name)
 {
 	cout << txt << ": " << var_name << "\n";
 }
 
-void p(const double var_name)
+void print(const double var_name)
 {
 	cout << var_name << "\n";
 }
-void p(const string txt, const int var_name)
+void print(const string txt, const int var_name)
 {
 	cout << txt << ": " << var_name << "\n";
 }
 
-void p(const int var_name)
+void print(const int var_name)
 {
 	cout << var_name << "\n";
 }

@@ -20,6 +20,7 @@
 #include "utils/utils.h"
 #include "headers/HestonEuler.h"
 #include "headers/HestonBroadieKayaTG.h"
+#include "headers/HestonBroadieKayaQE.h"
 #include "headers/MonteCarlo.h"
 
 
@@ -37,17 +38,17 @@ int main(int argc, char **argv)
 	double rate, kappa, theta, sigma, rho; 
     double gamma1, gamma2;
     // number of draw in the monte carlo method
-    nb_trials = pow(10,4);
+    nb_trials = pow(10,3);
     // number of steps & Maturity
     N = 1000;
     T = 1;
     // inital conditions for the Heston model SDE
     S_0 = 30;
-    V_0 = 0.1;
+    V_0 = 1;
     //heston model parameters
     rate = 0.05; // risk free rate
     kappa = 0.5; // mean reversion coeff
-    theta = 0.04; // long term variance
+    theta = 1.4; // long term variance
     sigma = 0.3; // vol of vol
     rho = - 0.6; // correlation
     // TG Scheme parameters
@@ -57,6 +58,7 @@ int main(int argc, char **argv)
 
     HestonEuler hestonEuler = HestonEuler(T,N, rate, kappa, theta, sigma, rho, S_0, V_0);
     HestonBroadieKayaTG hestonTG = HestonBroadieKayaTG(T,N, rate, kappa, theta, sigma, rho, S_0, V_0, gamma1, gamma2);
+    HestonBroadieKayaQE hestonQE = HestonBroadieKayaQE(T,N, rate, kappa, theta, sigma, rho, S_0, V_0, gamma1, gamma2);
 
     // plot(hestonEuler.generate_paths(20, "W_v"), T);
     // plot(hestonEuler.generate_paths(20, "V"), T);
@@ -64,18 +66,25 @@ int main(int argc, char **argv)
     // plot(hestonEuler.generate_paths(20, "LnS"), T);
     // plot(hestonEuler.generate_paths(), T);
     // plot(hestonTG.generate_paths(), T);
-
-    // std::vector<std::vector<ordinates>> c = { 
-    //         hestonEuler.generate_paths(2), 
-    //         hestonTG.generate_paths(2)
-    //     };
-    // plot(concat<ordinates>(c), T, {"euler", "euler", "TG", "TG"});
     // plot({hestonEuler.V, hestonTG.V}, T, { "hestonEuler", "hestonBroadieKaya"});
     // plot({hestonEuler.lnS, hestonTG.lnS}, T, { "hestonEuler", "hestonBroadieKaya"});
+    // plot({hestonQE.lnS}, T);
+
+    std::vector<std::vector<ordinates>> c = { 
+            hestonEuler.generate_paths(2), 
+            hestonTG.generate_paths(2),
+            hestonQE.generate_paths(2)
+        };
+    plot(concat<ordinates>(c), T, {"euler", "euler", "TG", "TG", "QE", "QE"});
 
 
-    p("MC hestonTG", monte_carlo(hestonTG, nb_trials));
-    p("MC hestonEuler", monte_carlo(hestonEuler, nb_trials));
+    // double mc_euler = monte_carlo(hestonEuler, nb_trials);
+    // double mc_tg = monte_carlo(hestonTG, nb_trials);
+    // double mc_qe = monte_carlo(hestonQE, nb_trials);
+
+    // p("MC hestonEuler", mc_euler);
+    // p("MC hestonTG", mc_tg);
+    // p("MC hestonQE", mc_qe);
 
     return 0;
 } 

@@ -24,6 +24,7 @@ double monte_carlo(ProcessGenerator &process, const int nb_trials)
 {
 	double expectation = 0;
 	int i25 = int(nb_trials * .25) , i50 = int(nb_trials * .50), i75 = int(nb_trials * .75);
+	cout << "==================== " << endl;
 	for(int i(0) ; i<nb_trials ; i++)
 	{
 		if (i == i25  || i == i50 || i == i75)
@@ -34,6 +35,7 @@ double monte_carlo(ProcessGenerator &process, const int nb_trials)
 			expectation += process.dt * pow(trial[j] - trial[j-1],2) / nb_trials ;
 		}
 	}
+	cout << endl;
 	return expectation;
 }
 #endif
