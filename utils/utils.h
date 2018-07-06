@@ -47,7 +47,8 @@ double uniform_draw(const double a=0, const double b=1)
 double gaussian_draw(const double  mu = 0, const double  sigma = 1)
 {
 	std::normal_distribution<> dis{mu, sigma};
-	return dis(gen);}
+	return dis(gen);
+}
 
 
 // =============================
