@@ -30,6 +30,7 @@ public:
     	k2 = gamma2 * dt * (kappa * rho / sigma - 0.5) + rho /sigma;
     	k3 = gamma1 * (1 - pow(rho,2)) * dt;
     	k4 = gamma2 * (1 - pow(rho,2)) * dt;
+		exp_kapa = exp(-kappa * dt);
     	new_trial();
     }
     double gamma1, gamma2;
@@ -78,7 +79,7 @@ private:
 	    	// psi = psi > 1 ? s2/pow(m, 2) : 1;
 	    	psi =s2/pow(m, 2) ;
 
-			if ( psi <= 1.5 ) 
+			if (0 < psi <= 1.5 ) 
 			{
 				a = m /(1 + b*b);
 				b = sqrt(2/psi - 1 + sqrt(2/psi) * sqrt(2/psi - 1));
@@ -89,10 +90,10 @@ private:
 				p = (psi - 1) / (psi + 1);
 				beta = 2 / (m*(psi + 1));
 		        u = uniform_draw();
-		        if (u <= p)
-		        	vol_path[i] = 0;
-		        else 
+		        if (u > p)
 		        	vol_path[i] = log((1 - p) / (1 - u)) / beta;
+		        else 
+		        	vol_path[i] = 0;
 			}
 	    }
 	}

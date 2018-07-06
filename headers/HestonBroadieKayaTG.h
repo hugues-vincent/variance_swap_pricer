@@ -30,10 +30,12 @@ public:
     	k2 = gamma2 * dt * (kappa * rho / sigma - 0.5) + rho /sigma;
     	k3 = gamma1 * (1 - pow(rho,2)) * dt;
     	k4 = gamma2 * (1 - pow(rho,2)) * dt;
+		exp_kapa = exp(-kappa * dt);
     	new_trial();
     }
 
     double gamma1, gamma2;
+    double exp_kapa, alpha;
 
  	ordinates new_trial()
     {
@@ -65,7 +67,6 @@ private:
 	void generate_vol_path(ordinates& vol_path)
 	{
 		double m, s2, phi; 
-		double exp_kapa = exp(-kappa * dt);
 
 		vol_path[0] = V_0;
 	    for (int i(1); i<N; i++)
