@@ -32,9 +32,10 @@ double monte_carlo(ProcessGenerator &process, const int nb_trials)
 		ordinates trial = process.new_trial();
 		for(int j(1) ; j < process.N ;  j++)
 		{
-			expectation += process.dt * pow(trial[j] - trial[j-1],2) / nb_trials ;
+			expectation += pow(trial[j] - trial[j-1],2);
 		}
 	}
+	expectation = process.dt * expectation / nb_trials;
 	cout << endl;
 	return expectation;
 }
