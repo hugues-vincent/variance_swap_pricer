@@ -44,7 +44,23 @@ public:
 		generate_log_spot_path(V, lnS);
 		return lnS;
     }
-
+	void set_parameters(double r_, double k_, double t_, double s_, double rho_, double S_0_, double V_0_)
+	{
+    	rate = r_;
+    	kappa = k_;
+    	theta = t_;
+    	sigma = s_;
+    	rho = rho_;
+    	S_0 = S_0_;
+    	V_0 = V_0_;
+    	k0 = -rho * kappa * theta / sigma * dt;
+    	k1 = gamma1 * dt * (kappa * rho / sigma - 0.5) - rho /sigma;
+    	k2 = gamma2 * dt * (kappa * rho / sigma - 0.5) + rho /sigma;
+    	k3 = gamma1 * (1 - pow(rho,2)) * dt;
+    	k4 = gamma2 * (1 - pow(rho,2)) * dt;
+		exp_kapa = exp(-kappa * dt);
+    	new_trial();
+	}
     std::vector<ordinates> generate_paths(const int nb_trials = 1, const string path_name = "lnS")
     {
 	    std::vector<ordinates> trials;

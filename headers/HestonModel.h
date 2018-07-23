@@ -26,6 +26,16 @@ public:
     double rate, kappa, theta, sigma, rho;
     double  S_0, V_0;
     ordinates V, S, lnS;
+    virtual void set_parameters(double r_, double k_, double t_, double s_, double rho_, double S_0_, double V_0_)
+    {
+    	rate = r_;
+    	kappa = k_;
+    	theta = t_;
+    	sigma = s_;
+    	rho = rho_;
+    	S_0 = S_0_;
+    	V_0 = V_0_;
+    }
 };
 
 #endif
