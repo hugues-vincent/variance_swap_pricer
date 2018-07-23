@@ -36,6 +36,19 @@ public:
     	S_0 = S_0_;
     	V_0 = V_0_;
     }
+    string param_to_string()
+    {
+    	 
+    	std::ostringstream oss;
+    	oss << "   rate: " << rate 
+	    	<< "   kappa: " << kappa 
+	    	<< "   theta: " << theta 
+	    	<< "   sigma: " << sigma 
+	    	<< "   rho: " << rho 
+	    	<< "   S_0: " << S_0 
+	    	<< "   V_0: " << V_0;
+		return oss.str();
+    }
 };
 
 #endif

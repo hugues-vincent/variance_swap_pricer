@@ -23,45 +23,85 @@
 typedef std::vector<double> ordinates;
 typedef complex<double> cd;
 
-double C(double w, double tau, double rate, double kappa, double theta, double sigma, double rho)
-{
-	double a = kappa - rho * sigma * w;
-	double b =0 ;
-	double g = (a + b) / (a - b);
-	return rate * (w - 1) * tau + kappa*theta/sigma2 * ((a + b) * tau - 2 * ln((1 - g*exp(b*tau)) / 1 - g)); 
-}
+class VarSwapAnalytical : public HestonModel {
+public:
+	VarSwapAnalytical(double T, int N, double r, double k, double t, double s, double rho, double S_0, double V_0) : HestonModel(r, k, t, s, rho, S_0, V_0), T(T), N(N) {}
+	double T, N;
 
-double var_swap_analytical(double T, int N, double rate, double kappa, double theta, double sigma, double rho, double S_0, double V_0) 
-{
-	double tau, w;
-	double c_i, w_i, t_i;
-	double a, b, g, q;
-	double C1, C2, D1, D2;
-	double g_v0, sum_gi_vo;
-	double sigma2 = pow(sigma, 2);
-	
-	tau =  T/N;
-	w = 0;
-	q = 2 * kappa * theta / sigma2;
-	a = kappa - rho * sigma * w;
-	b = sqrt(pow(a, 2) + sigma2 * (w*w  + w));
-	g = (a + b) / (a - b);
-
-	C = rate * (w - 1) * tau + kappa*theta/sigma2 * ((a + b) * tau - 2 * ln((1 - g*exp(b*tau)) / 1 - g)); 
-	D = (a + b) * (1 - exp(b*tau)) / sigma2 / (1 - g*exp(b*tau)); 
-
-
-	g_v0 = 0 ;
-
-	sum_gi_vo = 0;
-	for (int i(2) ; i<N ; i++) 
+	double var_swap_analytical() 
 	{
-		t_i = (i -1) * tau ;
-		c_i = 2 * kappa / sigma2 / (1 - exp(-kappa*t_i));
-		w_i = c_i * V_0 * exp(-kappa*t_i);
-		sum_gi_vo += pow(D1, 2) * (q + 2*w_i + pow(q + w_i, 2))/pow(c_i, 2) + (2*C1*D1 - D2)*(q + w_i)/c_i + pow(C1, 2) - C2;
+		double tau, q;
+		double c_i, w_i, t_i;
+		double C1, C2, D1, D2;
+		double g_v0, sum_gi_vo;
+		double sigma2 = pow(sigma, 2);
+		
+		C1 = C_derivative_1(tau, pow(10, -5));
+		C2 = C_derivative_2(tau, pow(10, -5));
+		D1 = D_derivative_1(tau, pow(10, -5));
+		D2 = D_derivative_2(tau, pow(10, -5));
+
+		tau =  T/N;
+		q = 2 * kappa * theta / sigma2;
+
+		print("C1", C1);
+		print("C2", C2);
+		print("D1", D1);
+		print("D2", D2);
+
+		g_v0 =  pow(D1, 2) * V_0 + (2*C1*D1 - D2)*V_0 + pow(C1, 2) - C2;
+
+		sum_gi_vo = 0;
+		for (int i(2) ; i<N ; i++) 
+		{
+			t_i = (i -1) * tau ;
+			c_i = 2 * kappa / sigma2 / (1 - exp(-kappa*t_i));
+			w_i = c_i * V_0 * exp(-kappa*t_i);
+			sum_gi_vo += pow(D1, 2) * (q + 2*w_i + pow(q + w_i, 2))/pow(c_i, 2) + (2*C1*D1 - D2)*(q + w_i)/c_i + pow(C1, 2) - C2;
+		}
+		return pow(100, 2) * (g_v0 + sum_gi_vo)/T;
 	}
-	
-	return pow(100, 2)(g_vo + sum_gi_vo)/T;
-}
+
+private:
+	double C(double tau, double w)
+	{
+		double sigma2 = pow(sigma, 2);
+		double a = kappa - rho * sigma * w;
+		double b = sqrt(pow(a, 2) + sigma2 * (w*w  + w));
+		double g = (a - b) / (a + b);
+		double c = rate * (w - 1) * tau + kappa*theta/sigma2 * ((a - b) * tau - 2 * log((1 - g*exp(b*tau)) / (1 - g)));
+		return c; 
+	}
+	double D(double tau, double w)
+	{
+		double sigma2 = pow(sigma, 2);
+		double a = kappa - rho * sigma * w;
+		double b = sqrt(pow(a, 2) + sigma2 * (w*w  + w));
+		double g = (a - b) / (a + b);
+
+	    return (a - b) * (1 - exp(b*tau)) / sigma2 / (1 - g*exp(b*tau));
+	}
+
+	double C_derivative_1(double tau, double h)
+	{
+	    return (C(tau, h) - C(tau, -h))/2*h;
+	}
+
+	double C_derivative_2(double tau, double h)
+	{
+		print("C(tau, 0)", C(tau, 0));
+	    return (C(tau, h) - 2*C(tau, 0) + C(tau, -h)) / (h*h);
+	}
+
+	double D_derivative_1(double tau, double h)
+	{
+	    return (D(tau, h) - D(tau, -h))/2*h;
+	}
+
+	double D_derivative_2(double tau, double h)
+	{
+	    return (D(tau, h) - 2*D(tau, 0) + D(tau, -h)) / (h*h);
+	}
+};
+
 #endif
