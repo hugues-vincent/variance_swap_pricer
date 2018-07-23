@@ -46,4 +46,32 @@ void plot(std::vector<ordinates> paths, const double T, vector<string> names = v
 	gp << endl;			
 
 };
+void plot(std::vector<curve> curve, vector<string> names = vector<string>()) 
+{
+	double max_y= -DBL_MAX , min_y= DBL_MAX, max_x= -DBL_MAX , min_x= DBL_MAX;
+	Gnuplot gp;
+	int nb_curve = curve.size();
+	for(int i(0); i<nb_curve; i++)
+	{
+		for(double j=0; j<curve[i].size(); j++) {
+			max_x = max(curve[i][j].first, max_x);
+			min_x = min(curve[i][j].first, min_x);
+			max_y = max(curve[i][j].second, max_y);
+			min_y = min(curve[i][j].second, min_y);
+
+		}
+	}
+	max_y += 0.1;
+	min_y -= 0.1;
+
+	if(names.empty())
+		names =  vector<string>(nb_curve, "");
+	gp << "set xrange ["<<min_x<<":"<< max_x<<"]\n set yrange ["<<min_y<<":"<< max_y<<"]\n" << "plot";
+	for(int i(0); i<nb_curve; i++)
+	{
+		gp << gp.file1d(curve[i]) <<  "with lines title '"<< names[i]<<"',";	
+	}
+	gp << endl;			
+
+};
 #endif
