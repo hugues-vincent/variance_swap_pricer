@@ -84,7 +84,7 @@ private:
 		double m, s2, psi; 
 		double a, b, p, beta; 
 		double u;
-
+		int print_limit = 4;
 		vol_path[0] = V_0;
 
 	    for (int i(1); i<N; i++)
@@ -92,13 +92,11 @@ private:
 	    	m = theta + (vol_path[i-1] - theta) * exp_kapa;
 	    	s2 = vol_path[i-1] * pow(sigma, 2) * exp_kapa * (1 - exp_kapa) / kappa  + theta * pow(sigma, 2) * pow((1 - exp_kapa), 2) / (2 * kappa);
 	    	
-	    	// psi = psi > 1 ? s2/pow(m, 2) : 1;
 	    	psi =s2/pow(m, 2) ;
-
 			if (0 < psi <= 1.5 ) 
 			{
-				a = m /(1 + b*b);
 				b = sqrt(2/psi - 1 + sqrt(2/psi) * sqrt(2/psi - 1));
+				a = m /(1 + b*b);
 		        vol_path[i] =  a * pow(b + gaussian_draw(), 2);
 			}
 			else 

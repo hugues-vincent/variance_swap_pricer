@@ -40,28 +40,33 @@ int main(int argc, char **argv)
 	double rate, kappa, theta, sigma, rho; 
     double gamma1, gamma2;
     // number of draw in the monte carlo method
-    nb_trials = 1500;
+    nb_trials = 1000;
     // number of steps & Maturity
     N = 1000;
     T = 1;
     // inital conditions for the Heston model SDE
-    S_0 = 100;
-    V_0 = 0.0102;
+    S_0 = 30;
+    V_0 = 5;
     //heston model parameters
-    rate = 0.0319; // risk free rate
-    kappa = 1.21; // mean reversion coeff
-    theta = 0.019; // long term variance
-    sigma = 0.61; // vol of vol
-    rho = - 0.7; // correlation
+    rate = 0.03; // risk free rate
+    kappa = 2; // mean reversion coeff
+    theta = 2; // long term variance
+    sigma = 0.3; // vol of vol
+    rho = 0.5; // correlation
     // TG Scheme parameters
     gamma1 = 0.5; 
     gamma2 = 0.5;
 
+    // display paramters
+    std::vector<string> names = std::vector<string>();
+    int nb_mc = 2;
 
     HestonEuler hestonEuler = HestonEuler(T,N, rate, kappa, theta, sigma, rho, S_0, V_0);
     HestonBroadieKayaTG hestonTG = HestonBroadieKayaTG(T,N, rate, kappa, theta, sigma, rho, S_0, V_0, gamma1, gamma2);
     HestonBroadieKayaQE hestonQE = HestonBroadieKayaQE(T,N, rate, kappa, theta, sigma, rho, S_0, V_0, gamma1, gamma2);
-    // double 
+    // ===============================
+    // Plot simple curve
+    // ===============================
     // plot(hestonEuler.generate_paths(20, "W_v"), T);
     // plot(hestonEuler.generate_paths(20, "V"), T);
     // plot(hestonEuler.generate_paths(20, "S"), T);
@@ -72,15 +77,28 @@ int main(int argc, char **argv)
     // plot({hestonEuler.lnS, hestonTG.lnS}, T, { "hestonEuler", "hestonBroadieKaya"});
     // plot({hestonQE.lnS}, T);
 
-            // hestonQE.generate_paths(2)
     // std::vector<std::vector<ordinates>> c = { 
-    //         hestonEuler.generate_paths(3), 
-    //         hestonTG.generate_paths(3)
+    //         hestonEuler.generate_paths(nb_mc, "V"), 
+    //         hestonTG.generate_paths(nb_mc, "V"),
+    //         hestonQE.generate_paths(nb_mc, "V")
     //     };
-    // plot(concat<ordinates>(c), T, {"euler", "euler", "euler" , "TG", "TG", "TG", "QE", "QE"});
+    // for (int j=0 ; j<nb_mc; j++)
+    // {
+    //     names.push_back("euler");
+    // }
+    // for (int j=0 ; j<nb_mc; j++)
+    // {
+    //     names.push_back("tg");
+    // }
+    // for (int j=0 ; j<nb_mc; j++)
+    // {
+    //     names.push_back("qe");
+    // }
+    // plot(concat<ordinates>(c), T, names,  hestonEuler.param_to_string());
+
 
     // ===============================
-    // Result function of a paramater
+    // Curve function of a paramater
     // ===============================
     // curve mc_euler = curve();
     // curve mc_tg = curve();
@@ -99,44 +117,61 @@ int main(int argc, char **argv)
     // ===============================
     vector<curve> mc_paths = vector<curve>();
     vector<double> path;
-    std::vector<string> names = std::vector<string>();
+    names = std::vector<string>();
     curve new_path;
-    for (int j=0 ; j<2; j++)
+    for (int j=0 ; j<nb_mc; j++)
     {
         new_path = curve();
         path = monte_carlo_path(hestonEuler, nb_trials);
         for (int i=0 ; i<nb_trials; i++)
         {
-            new_path.push_back(make_pair(i, path[i] * 100));
+            if( i > 10)
+            new_path.push_back(make_pair(i, exp(-rate*T) * path[i] * 100));
         }
         mc_paths.push_back(new_path);
         names.push_back("euler");
     }
-    for (int j=0 ; j<3; j++)
+    for (int j=0 ; j<nb_mc; j++)
     {
         new_path = curve();
         path = monte_carlo_path(hestonTG, nb_trials);
         for (int i=0 ; i<nb_trials; i++)
         {
-            new_path.push_back(make_pair(i, path[i] * 100));
+            if( i > 10)
+            new_path.push_back(make_pair(i, exp(-rate*T) * path[i] * 100));
         }
         mc_paths.push_back(new_path);
         names.push_back("tg");
     }
+    for (int j=0 ; j<nb_mc; j++)
+    {
+        new_path = curve();
+        path = monte_carlo_path(hestonQE, nb_trials);
+        for (int i=0 ; i<nb_trials; i++)
+        {
+            if( i > 10)
+            new_path.push_back(make_pair(i, exp(-rate*T) * path[i] * 100));
+        }
+        mc_paths.push_back(new_path);
+        names.push_back("qe");
+    }
     plot(mc_paths, names, hestonEuler.param_to_string());
 
 
-    
+    // ===============================
+    // print Monte Carlo simple result
+    // ===============================  
     // double euler = monte_carlo(hestonEuler, nb_trials);
     // double tg = monte_carlo(hestonTG, nb_trials);
     // print("MC hestonEuler", euler * 100);
     // print("MC hestonTG", tg * 100 );
 
+    // double mc_qe = monte_carlo(hestonQE, nb_trials);
+    // print("MC hestonQE", mc_qe * 100);
+
     // VarSwapAnalytical varswap = VarSwapAnalytical(T,N, rate, kappa, theta, sigma, rho, S_0, V_0);
     // print("Analytic", varswap.var_swap_analytical());
 
-    // double mc_qe = monte_carlo(hestonQE, nb_trials);
-    // p("MC hestonQE", mc_qe);
     return 0;
 } 
 #endif
