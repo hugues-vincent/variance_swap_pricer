@@ -21,7 +21,7 @@ curve path_to_curve(const ordinates path, const double T)
 	return model_curve;
 }
 
-void plot(std::vector<ordinates> paths, const double T, vector<string> names = vector<string>()) 
+void plot(std::vector<ordinates> paths, const double T, vector<string> names = vector<string>(), string title = "") 
 {
 	double max_= -DBL_MAX , min_= DBL_MAX;
 	Gnuplot gp;
@@ -38,7 +38,7 @@ void plot(std::vector<ordinates> paths, const double T, vector<string> names = v
 
 	if(names.empty())
 		names =  vector<string>(nb_curve, "");
-	gp << "set xrange ["<<0<<":"<< T<<"]\n set yrange ["<<min_<<":"<< max_<<"]\n" << "plot";
+	gp << "set title \"" << title << "\" \n set xrange ["<<0<<":"<< T<<"]\n set yrange ["<<min_<<":"<< max_<<"]\n" << "plot";
 	for(int i(0); i<nb_curve; i++)
 	{
 		gp << gp.file1d(path_to_curve(paths[i], T)) <<  "with lines title '"<< names[i]<<"',";	
