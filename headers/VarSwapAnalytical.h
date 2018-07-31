@@ -36,13 +36,13 @@ public:
 		double g_v0, sum_gi_vo;
 		double sigma2 = pow(sigma, 2);
 		
+		tau =  T/N;
+		q = 2 * kappa * theta / sigma2;
+
 		C1 = C_derivative_1(tau, pow(10, -5));
 		C2 = C_derivative_2(tau, pow(10, -5));
 		D1 = D_derivative_1(tau, pow(10, -5));
 		D2 = D_derivative_2(tau, pow(10, -5));
-
-		tau =  T/N;
-		q = 2 * kappa * theta / sigma2;
 
 		print("C1", C1);
 		print("C2", C2);
@@ -54,12 +54,15 @@ public:
 		sum_gi_vo = 0;
 		for (int i(2) ; i<N ; i++) 
 		{
-			t_i = (i -1) * tau ;
+			t_i = i * tau ;
 			c_i = 2 * kappa / sigma2 / (1 - exp(-kappa*t_i));
 			w_i = c_i * V_0 * exp(-kappa*t_i);
 			sum_gi_vo += pow(D1, 2) * (q + 2*w_i + pow(q + w_i, 2))/pow(c_i, 2) + (2*C1*D1 - D2)*(q + w_i)/c_i + pow(C1, 2) - C2;
 		}
-		return pow(100, 2) * (g_v0 + sum_gi_vo)/T;
+		// version de l'article
+		// return (g_v0 + sum_gi_vo)*100*100/T;
+		// version du résumé
+		return (g_v0 + sum_gi_vo)*tau;
 	}
 
 private:
@@ -68,23 +71,34 @@ private:
 		double sigma2 = pow(sigma, 2);
 		double a = kappa - rho * sigma * w;
 		double b = sqrt(pow(a, 2) + sigma2 * (w*w  + w));
+		
+		// version de l'article
+		// double g = (a + b) / (a - b);
+		// return rate * (w - 1) * tau + kappa*theta/sigma2 * ((a + b) * tau - 2 * log((1 - g*exp(b*tau)) / (1 - g)));
+		
+		// version du résumé
 		double g = (a - b) / (a + b);
-		double c = rate * (w - 1) * tau + kappa*theta/sigma2 * ((a - b) * tau - 2 * log((1 - g*exp(b*tau)) / (1 - g)));
-		return c; 
+		return rate * (w - 1) * tau + kappa*theta/sigma2 * ((a - b) * tau - 2 * log((1 - g*exp(b*tau)) / (1 - g)));
+
 	}
 	double D(double tau, double w)
 	{
 		double sigma2 = pow(sigma, 2);
 		double a = kappa - rho * sigma * w;
 		double b = sqrt(pow(a, 2) + sigma2 * (w*w  + w));
-		double g = (a - b) / (a + b);
+		// version de l'article
+		// double g = (a + b) / (a - b);
+	    // return (a + b) * (1 - exp(b*tau)) / sigma2 / (1 - g*exp(b*tau));
 
-	    return (a - b) * (1 - exp(b*tau)) / sigma2 / (1 - g*exp(b*tau));
+		// version du résumé
+		double g = (a - b) / (a + b);
+	    return (a - b) * (1 - exp(-b*tau)) / sigma2 / (1 - g*exp(-b*tau));
+
 	}
 
 	double C_derivative_1(double tau, double h)
 	{
-	    return (C(tau, h) - C(tau, -h))/2*h;
+	    return (C(tau, h) - C(tau, -h))/(2*h);
 	}
 
 	double C_derivative_2(double tau, double h)
@@ -95,7 +109,7 @@ private:
 
 	double D_derivative_1(double tau, double h)
 	{
-	    return (D(tau, h) - D(tau, -h))/2*h;
+	    return (D(tau, h) - D(tau, -h))/(2*h);
 	}
 
 	double D_derivative_2(double tau, double h)

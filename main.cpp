@@ -153,16 +153,19 @@ int main(int argc, char **argv)
     // ===============================
     // print Monte Carlo simple result
     // ===============================  
-    // double euler = monte_carlo(hestonEuler, nb_trials);
+    
     // double tg = monte_carlo(hestonTG, nb_trials);
-    // print("MC hestonEuler", euler * 100);
     // print("MC hestonTG", tg * 100 );
 
     // double mc_qe = monte_carlo(hestonQE, nb_trials);
     // print("MC hestonQE", mc_qe * 100);
 
     VarSwapAnalytical varswap = VarSwapAnalytical(T,N, rate, kappa, theta, sigma, rho, S_0, V_0);
-    print("Analytic", varswap.var_swap_analytical());
+    double analytic =  varswap.var_swap_analytical();
+    double euler = monte_carlo(hestonEuler, nb_trials);
+    
+    print("Analytic",analytic);
+    print("MC hestonEuler", euler * 100);
 
     return 0;
 } 
